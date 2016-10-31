@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `transaction_items` (
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
-  `user_ID` int(11) NOT NULL,
+  `user_ID` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -183,7 +183,6 @@ ALTER TABLE `transaction_items`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_ID`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
