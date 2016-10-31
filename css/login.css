@@ -1,0 +1,9 @@
+.login_validation_good {
+  border-color: green;
+  color: green;
+}
+
+.login_validation_bad {
+	border-color: red;
+	color: red;
+}
