@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Oct 30, 2016 at 04:38 AM
+-- Generation Time: Oct 31, 2016 at 09:46 PM
 -- Server version: 5.5.49-log
 -- PHP Version: 7.0.9
 
@@ -28,7 +28,6 @@ USE `onlineautopartsstore`;
 -- Table structure for table `cart`
 --
 
-DROP TABLE IF EXISTS `cart`;
 CREATE TABLE IF NOT EXISTS `cart` (
   `user_ID` int(11) NOT NULL,
   `item_ID` int(11) NOT NULL
@@ -40,13 +39,13 @@ CREATE TABLE IF NOT EXISTS `cart` (
 -- Table structure for table `item`
 --
 
-DROP TABLE IF EXISTS `item`;
 CREATE TABLE IF NOT EXISTS `item` (
   `item_ID` int(11) NOT NULL,
   `item_name` varchar(100) NOT NULL,
   `num_available` int(11) NOT NULL,
   `category` varchar(100) NOT NULL,
-  `description` text NOT NULL
+  `description` text NOT NULL,
+  `tags` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -55,7 +54,6 @@ CREATE TABLE IF NOT EXISTS `item` (
 -- Table structure for table `item_vehicle`
 --
 
-DROP TABLE IF EXISTS `item_vehicle`;
 CREATE TABLE IF NOT EXISTS `item_vehicle` (
   `item_ID` int(11) NOT NULL,
   `vehicle_ID` int(11) NOT NULL
@@ -67,7 +65,6 @@ CREATE TABLE IF NOT EXISTS `item_vehicle` (
 -- Table structure for table `transaction`
 --
 
-DROP TABLE IF EXISTS `transaction`;
 CREATE TABLE IF NOT EXISTS `transaction` (
   `transaction_ID` int(11) NOT NULL,
   `user_ID` int(11) NOT NULL,
@@ -80,7 +77,6 @@ CREATE TABLE IF NOT EXISTS `transaction` (
 -- Table structure for table `transaction_items`
 --
 
-DROP TABLE IF EXISTS `transaction_items`;
 CREATE TABLE IF NOT EXISTS `transaction_items` (
   `transaction_ID` int(11) NOT NULL,
   `item_ID` int(11) NOT NULL,
@@ -93,9 +89,8 @@ CREATE TABLE IF NOT EXISTS `transaction_items` (
 -- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
-  `user_ID` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `user_ID` int(11) NOT NULL,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -108,20 +103,12 @@ CREATE TABLE IF NOT EXISTS `user` (
   `zip` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`user_ID`, `first_name`, `last_name`, `email`, `hashed_password`, `phone_number`, `is_admin`, `street_address`, `city`, `state`, `zip`) VALUES
-(1, 'John', 'Smith', 'John.Smith@gmail.com', 'password', '1234567891', 0, '1234 fake', 'dallas', 'texas', 75021);
-
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `user_transactions`
 --
 
-DROP TABLE IF EXISTS `user_transactions`;
 CREATE TABLE IF NOT EXISTS `user_transactions` (
   `user_ID` int(11) NOT NULL,
   `transaction_ID` int(11) NOT NULL
@@ -133,7 +120,6 @@ CREATE TABLE IF NOT EXISTS `user_transactions` (
 -- Table structure for table `vehicle`
 --
 
-DROP TABLE IF EXISTS `vehicle`;
 CREATE TABLE IF NOT EXISTS `vehicle` (
   `vehicle_ID` int(11) NOT NULL,
   `make` varchar(50) NOT NULL,
@@ -183,6 +169,7 @@ ALTER TABLE `transaction_items`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
+  ADD PRIMARY KEY (`user_ID`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
@@ -198,6 +185,15 @@ ALTER TABLE `user_transactions`
 ALTER TABLE `vehicle`
   ADD PRIMARY KEY (`vehicle_ID`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
@@ -233,8 +229,8 @@ ALTER TABLE `transaction_items`
 -- Constraints for table `user_transactions`
 --
 ALTER TABLE `user_transactions`
-  ADD CONSTRAINT `User_Transactions User Foreign Key` FOREIGN KEY (`user_ID`) REFERENCES `user` (`user_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `User_Transactions Transaction Foreign Key` FOREIGN KEY (`transaction_ID`) REFERENCES `transaction` (`transaction_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `User_Transactions Transaction Foreign Key` FOREIGN KEY (`transaction_ID`) REFERENCES `transaction` (`transaction_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `User_Transactions User Foreign Key` FOREIGN KEY (`user_ID`) REFERENCES `user` (`user_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
