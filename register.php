@@ -29,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if ($firstName == null || $firstName =="")
     {
         header("Location: login.html");
+        exit();
     }
 
 
@@ -36,19 +37,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if ($lastName == null || $lastName =="")
     {
         header("Location: login.html");
+        exit();
     }
 
     $emailAddress = clean_input($_POST["email"]);
     if ($emailAddress == null || $emailAddress =="")
     {
         header("Location: login.html");
+        exit();
     }
 
 
     $password = clean_input($_POST["password"]);
-    if ($password == null || $password=="")
+    if ($password == null || $password=="" || strlen($password) < 8)
     {
         header("Location: login.html");
+        exit();
     }
 
 }
