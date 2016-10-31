@@ -186,6 +186,16 @@
 							<input type="email" placeholder="Email Address" name="email" id="email"/> <span class="invalidBorderClass" id="emailAddressNotValid" style="visibility:hidden">Not a Valid Email Address</span>
 							<input type="password" placeholder="Password" name="password" id="password"/> <span class="invalidBorderClass" id="passwordNotValid" style="visibility:hidden">Must Be 8 Characters Long</span>
 							<button type="submit" class="btn btn-default">Signup</button>
+							<?php
+								$registerInvalid = array(
+									"invalidRegistration"=>"This is an invalid registration. Please make sure all fields are filled and the password is at least 8 characters"
+
+							);
+
+							if($_GET['register'] == 'false'){
+							echo "<br><div class=\"alert alert-warning\">".$registerInvalid[$_GET['reason']]."</div>";
+					}
+					?>
 						</form>
 					</div><!--/sign up form-->
 				</div>

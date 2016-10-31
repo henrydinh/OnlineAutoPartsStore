@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $firstName = clean_input($_POST["firstName"]);
     if ($firstName == null || $firstName =="")
     {
-        header("Location: login.html");
+        header('Location: login.html?register=false&reason=invalidRegistration');
         exit();
     }
 
@@ -36,14 +36,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $lastName = clean_input($_POST["lastName"]);
     if ($lastName == null || $lastName =="")
     {
-        header("Location: login.html");
+        header('Location: login.html?register=false&reason=invalidRegistration');
         exit();
     }
 
     $emailAddress = clean_input($_POST["email"]);
     if ($emailAddress == null || $emailAddress =="")
     {
-        header("Location: login.html");
+        header('Location: login.html?register=false&reason=invalidRegistration');
         exit();
     }
 
@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $password = clean_input($_POST["password"]);
     if ($password == null || $password=="" || strlen($password) < 8)
     {
-        header("Location: login.html");
+        header('Location: login.html?register=false&reason=invalidRegistration');
         exit();
     }
 
