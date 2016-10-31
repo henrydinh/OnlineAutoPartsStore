@@ -1,0 +1,9 @@
+.invalidBorderClass
+{
+    color: red;
+
+}
+
+.validBorderClass{
+    color: green;
+}
