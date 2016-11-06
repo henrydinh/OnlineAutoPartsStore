@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Nov 06, 2016 at 12:07 AM
+-- Generation Time: Nov 06, 2016 at 12:48 AM
 -- Server version: 5.5.49-log
 -- PHP Version: 7.0.9
 
@@ -42,11 +42,19 @@ CREATE TABLE IF NOT EXISTS `cart` (
 CREATE TABLE IF NOT EXISTS `item` (
   `item_ID` int(11) NOT NULL,
   `item_name` varchar(100) NOT NULL,
+  `price` float NOT NULL,
   `num_available` int(11) NOT NULL,
   `category` varchar(100) NOT NULL,
   `description` text NOT NULL,
   `tags` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `item`
+--
+
+INSERT INTO `item` (`item_ID`, `item_name`, `price`, `num_available`, `category`, `description`, `tags`) VALUES
+(1, 'Grant 61035 Steering Wheel - Direct Fit', 258.39, 100, 'Interior Accessories', 'Series: Grant Revolution\nProduct Fit: Direct Fit\nQuantity Sold: Sold Individually\nGrip Finish: Black and burlwood\nGrip Material: Plastic\n\nGRANT REVOLUTION STEERING WHEEL, BLACK -- 4-spoke design; Includes installation instructions; Features a black polyurethane grip with perforated burlwood plastic inserts; Made to exacting standards to guarantee an OEM fit and finish; Utilizes your vehicle''s existing airbag module, horn switch, and other switches; Can only be used on vehicles with factory switches; Factory switches not included.\nHighlights', 'interior steering wheel accessory');
 
 -- --------------------------------------------------------
 
@@ -101,7 +109,16 @@ CREATE TABLE IF NOT EXISTS `user` (
   `city` varchar(50) NOT NULL,
   `state` varchar(20) NOT NULL,
   `zip` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_ID`, `first_name`, `last_name`, `email`, `hashed_password`, `phone_number`, `is_admin`, `street_address`, `city`, `state`, `zip`) VALUES
+(1, 'John', 'Smith', 'John.Smith@gmail.com', 'password', '1234567891', 0, '1234 fake', 'dallas', 'texas', 75021),
+(2, 'elon', 'musk', 'elon@tesla.com', 'password', '', 0, '', '', '', 0),
+(3, 'bill', 'gates', 'bill.gates@microsoft.com', '12345678', '', 0, '', '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -193,7 +210,7 @@ ALTER TABLE `vehicle`
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `item_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `item_ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `transaction`
 --
@@ -203,7 +220,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `vehicle`
 --
