@@ -33,7 +33,7 @@
 				$_SESSION["user_ID"] = $user_ID;
 				$_SESSION["first_name"] = $first_name;
 				$_SESSION["last_name"] = $last_name;
-				header('Location: my-account.php');
+				header('Location: my-account.html');
 			}else{
 				header('Location: login.html?login=false&reason=wrong_combo');
 			}
