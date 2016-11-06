@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Oct 31, 2016 at 09:46 PM
+-- Generation Time: Nov 06, 2016 at 12:07 AM
 -- Server version: 5.5.49-log
 -- PHP Version: 7.0.9
 
@@ -190,10 +190,25 @@ ALTER TABLE `vehicle`
 --
 
 --
+-- AUTO_INCREMENT for table `item`
+--
+ALTER TABLE `item`
+  MODIFY `item_ID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `transaction`
+--
+ALTER TABLE `transaction`
+  MODIFY `transaction_ID` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `vehicle`
+--
+ALTER TABLE `vehicle`
+  MODIFY `vehicle_ID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
