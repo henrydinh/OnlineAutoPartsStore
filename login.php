@@ -3,10 +3,9 @@
 	$username = $password = "";
 	
 	// check if the request is POST
-	if ($_SERVER["REQUEST_METHOD"] == "POST"){
+	if (isset($_POST['login_submit'])){
 		$username = cleanInput($_POST["login_username"]);
 		$password = cleanInput($_POST["login_password"]);
-		
 		if(validateUsername($username) && validatePassword($password)){
 			// Connect to database
 			$con = mysqli_connect('localhost', 'root', 'root', 'onlineautopartsstore');
@@ -33,16 +32,19 @@
 				$_SESSION["user_ID"] = $user_ID;
 				$_SESSION["first_name"] = $first_name;
 				$_SESSION["last_name"] = $last_name;
-				header('Location: my-account.html');
+				//header('Location: my-account.html');
+				echo 'ok';
 			}else{
-				header('Location: login.html?login=false&reason=wrong_combo');
+				//header('Location: login.html?login=false&reason=wrong_combo');
+				echo 'The username and password you entered did not match our records. Please try again.';
 			}
 			
 			// Close Mysql connection
 			$con->close();
 		}else{
 			// Redirect to login.html
-			header('Location: login.html?login=false&reason=invalid');
+			//header('Location: login.html?login=false&reason=invalid');
+			echo 'Invalid username or password. Please try again.';
 		}
 	}
 

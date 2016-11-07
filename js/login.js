@@ -57,5 +57,35 @@ $(document).ready(function() {
 		});
 	}
 	
+	// validate login form
 	validateLoginForm();
+	
+	// Initially hide alert box
+	$('#login_alert_box').hide();
+	
+	// call submitForm function for the submitHandler
+	$('#login_form').validate({
+		submitHandler: submitForm
+	});
+	
+	function submitForm(){
+		// serialize the form
+		var data = $('#login_form').serialize();
+		console.log(data);
+		// use AJAX to verify login details with database
+		$.ajax({
+			type: 'POST',
+			url: 'login.php',
+			data: data,
+			success: function(result){
+				if(result == "ok"){
+					window.location = 'my-account.html';
+				}else{	
+					$('#login_alert_box').text(result);
+					$('#login_alert_box').show();
+				}
+			}
+		});
+		return false;
+	}
 });
