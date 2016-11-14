@@ -30,6 +30,7 @@
 				$city = $user_obj->city;
 				$state = $user_obj->state;
 				$zip = $user_obj->zip;
+                $isAdmin = $user_obj->is_admin;
 				
 				// Start a session
 				session_start();
@@ -42,6 +43,7 @@
 				$_SESSION["city"] = $city;
 				$_SESSION["state"] = $state;
 				$_SESSION["zip"] = $zip;
+                $_SESSION["isAdmin"] = $isAdmin;
 				//header('Location: my-account.html');
 				echo 'ok';
 			}else{
