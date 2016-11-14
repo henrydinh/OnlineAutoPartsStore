@@ -34,6 +34,17 @@
 	<link href="css/responsive.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/register.css" type="text/css">
 	<link href="css/login.css" rel="stylesheet" type="text/css">
+	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="js/jquery.js"></script>
+	<script src="js/price-range.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/main.js"></script>
+	<script src="http://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+	<script src="js/update-profile.js"></script>
+	<script src="js/update-address.js"></script>
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -197,14 +208,14 @@
 										<div class="row">
 											<div class="col-md-12">
 												<label class="">User ID</label>
-												<input id="user_id" name="user_id" value=<?php echo $user_ID;?> class="form-control" type="text" readonly>
+												<input id="user_ID" name="user_ID" value=<?php echo "\"$user_ID\"";?> class="form-control" type="text" readonly>
 											</div>
 										</div>
 										<!-- Text input for first name-->
 										<div class="row">
 											<div class="col-md-12">
 												<label class="">First Name</label>
-												<input id="first_name" name="first_name" value=<?php echo $first_name;?> class="form-control" type="text">
+												<input id="first_name" name="first_name" value=<?php echo "\"$first_name\"";?> class="form-control" type="text">
 											</div>
 										</div>
 										<!-- Text input for password-->
@@ -212,30 +223,34 @@
 											<div class="col-md-12">
 												<label class="">New Password</label>
 												<input id="password" name="password" placeholder="Change password" class="form-control" type="password">
+												<div id="password_notification"></div>
 											</div>
 										</div>
 										<!-- Text input for phone number-->
 										<div class="row">
 											<div class="col-md-12">
 												<label class="">Phone</label>
-												<input id="phone" name="phone" value=<?php echo $phone;?> class="form-control" type="number">
+												<input id="phone" name="phone" value=<?php echo "\"$phone\"";?> class="form-control" type="number">
 											</div>
 										</div>
-										<button id="save" name="save" type="submit" class="btn btn-default">Save Updates</button>
+										<button id="update_profile_submit" name="update_profile_submit" type="submit" class="btn btn-default">Save Updates</button>
+										<br>
+										<div id="profile_alert_box" class="alert alert-warning"></div>
 									</div>
 									<div class="col-sm-6">
 										<!-- Input for Email-->
 										<div class="row">
 											<div class="col-md-12">
 												<label class="">Email</label>
-												<input id="email" name="email" value=<?php echo $username;?> class="form-control" type="text">
+												<input id="email" name="email" value=<?php echo "\"$username\"";?> class="form-control" type="text">
+												<div id="username_notification"></div>
 											</div>
 										</div>
 										<!-- Text input for last name-->
 										<div class="row">
 											<div class="col-md-12">
 												<label class="">Last Name</label>
-												<input id="last_name" name="last_name" value=<?php echo $last_name;?> class="form-control" type="text">
+												<input id="last_name" name="last_name" value=<?php echo "\"$last_name\"";?> class="form-control" type="text">
 											</div>
 										</div>
 										<!-- Text input for confirm new password-->
@@ -243,6 +258,7 @@
 											<div class="col-md-12">
 												<label class="">Confirm Password</label>
 												<input id="confirm_password" name="confirm_password" placeholder="Confirm new password" class="form-control" type="password">
+												<div id="confirmed_password_notification"></div>
 											</div>
 										</div>
 									</div>
@@ -254,37 +270,39 @@
 						<div class="tab-pane fade" id="addresses" >
 							<div class="col-md-12 login-form">
 								<h2>Shipping Addresses</h2>
-								<form id="profile_form" name="profile_form" method="post">
+								<form id="address_form" name="address_form" method="post">
 									<div class="col-sm-6">
 										<!-- Text input for street address-->
 										<div class="row">
 											<div class="col-md-12">
 												<label class="">Street Address</label>
-												<input id="street_address" name="street_address" value=<?php echo $street_address;?> class="form-control" type="text">
+												<input id="street_address" name="street_address" value=<?php echo "\"$street_address\"";?> class="form-control" type="text">
 											</div>
 										</div>
 										<!-- Text input for state-->
 										<div class="row">
 											<div class="col-md-12">
 												<label class="">State</label>
-												<input id="state" name="state" value=<?php echo $state;?> class="form-control" type="text">
+												<input id="state" name="state" value=<?php echo "\"$state\"";?> class="form-control" type="text">
 											</div>
 										</div>
-										<button id="save" name="save" type="submit" class="btn btn-default">Save Updates</button>
+										<button id="update_address_submit" name="update_address_submit" type="submit" class="btn btn-default">Save Updates</button>
+										<br>
+										<div id="address_alert_box" class="alert alert-warning"></div>
 									</div>
 									<div class="col-sm-6">
 										<!-- Input for City-->
 										<div class="row">
 											<div class="col-md-12">
 												<label class="">City</label>
-												<input id="city" name="city" value=<?php echo $city;?> class="form-control" type="text">
+												<input id="city" name="city" value=<?php echo "\"$city\"";?> class="form-control" type="text">
 											</div>
 										</div>
 										<!-- Text input for zip code-->
 										<div class="row">
 											<div class="col-md-12">
 												<label class="">Zip Code</label>
-												<input id="zip_code" name="zip_code" value=<?php echo $zip;?> class="form-control" type="number">
+												<input id="zip_code" name="zip_code" value=<?php echo "\"$zip\"";?> class="form-control" type="number">
 											</div>
 										</div>
 									</div>
@@ -292,19 +310,20 @@
 							</div>
 						</div>
 						
+				
 						<!-- Payment Methods -->
-						<div class="tab-pane fade active in" id="payment" >
-							<div class="col-sm-12">
-								<p><?echo $description ?></p>
+						<div class="tab-pane fade" id="payment" >
+							<div class="col-md-12 login-form">
+								<h2>Payment Methods</h2>
 							</div>
-						</div>	
+						</div>
 						
 						<!-- Orders -->
-						<div class="tab-pane fade active in" id="orders" >
-							<div class="col-sm-12">
-								<p><?echo $description ?></p>
+						<div class="tab-pane fade" id="orders" >
+							<div class="col-md-12 login-form">
+								<h2>Orders</h2>
 							</div>
-						</div>	
+						</div>
 						
 					</div>
 				</div>
@@ -471,16 +490,5 @@
 		</div>
 		
 	</footer><!--/Footer-->
-
-
-	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-    <script src="js/jquery.js"></script>
-	<script src="js/price-range.js"></script>
-    <script src="js/jquery.scrollUp.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/main.js"></script>
-	<script src="js/login.js"></script>
-	<script src="js/register.js"></script>
 </body>
 </html>
