@@ -1,14 +1,17 @@
 <?php
 	session_start();
-	
+
 	if(isset($_SESSION['user_ID']) && isset($_SESSION['username'])){
-		$username = $_SESSION['username'];	
+		$username = $_SESSION['username'];
 		$user_ID = $_SESSION['user_ID'];
 		$first_name = $_SESSION['first_name'];
 		$last_name = $_SESSION['last_name'];
-		echo "Hello, ".$first_name." ".$last_name."!";
-		echo "<br>User ID: ".$user_ID;
-		echo "<br>Email/username: ".$username;
+		$phone = $_SESSION['phone'];
+		$street_address = $_SESSION['street_address'];
+		$city = $_SESSION['city'];
+		$state = $_SESSION['state'];
+		$zip = $_SESSION['zip'];
+		$isAdmin = $_SESSION['isAdmin'];
 	}else{
 		// Redirect to login.html
 		header('Location: login.html');
@@ -22,7 +25,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Login | E-Shopper</title>
+    <title>Account | Comet Car Parts</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -35,7 +38,7 @@
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
-    <![endif]-->       
+    <![endif]-->
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
@@ -70,7 +73,7 @@
 				</div>
 			</div>
 		</div><!--/header_top-->
-		
+
 		<div class="header-middle"><!--header-middle-->
 			<div class="container">
 				<div class="row">
@@ -89,7 +92,7 @@
 									<li><a href="">UK</a></li>
 								</ul>
 							</div>
-							
+
 							<div class="btn-group">
 								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
 									DOLLAR
@@ -105,18 +108,26 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
 								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
 								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="login.html" class="active"><i class="fa fa-lock"></i> Login</a></li>
+								<?php
+									if(isset($_SESSION['user_ID']) && isset($_SESSION['username'])){
+										// show the account and logout button if logged in
+										echo '<li><a href="my-account.html" class="active" id="account_button"><i class="fa fa-user"></i> Account</a></li>';
+										echo '<li><a href="index.html" class="" id="logout_button"><i class="fa fa-sign-out"></i> Logout</a></li>';
+									}else{
+										// show the login button if not logged in
+										echo '<li><a href="login.html" class="" id="login_button"><i class="fa fa-lock"></i> Login</a></li>';
+									}
+								?>
 							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div><!--/header-middle-->
-	
+
 		<div class="header-bottom"><!--header-bottom-->
 			<div class="container">
 				<div class="row">
@@ -135,18 +146,18 @@
 								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="shop.php">Products</a></li>
-										<li><a href="product-details.html">Product Details</a></li> 
-										<li><a href="checkout.html">Checkout</a></li> 
-										<li><a href="cart.html">Cart</a></li> 
-										<li><a href="login.html" class="active">Login</a></li> 
+										<li><a href="product-details.html">Product Details</a></li>
+										<li><a href="checkout.html">Checkout</a></li>
+										<li><a href="cart.html">Cart</a></li>
+										<li><a href="login.html" class="active">Login</a></li>
                                     </ul>
-                                </li> 
+                                </li>
 								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="blog.html">Blog List</a></li>
 										<li><a href="blog-single.html">Blog Single</a></li>
                                     </ul>
-                                </li> 
+                                </li>
 								<li><a href="404.html">404</a></li>
 								<li><a href="contact-us.html">Contact</a></li>
 							</ul>
@@ -161,64 +172,173 @@
 			</div>
 		</div><!--/header-bottom-->
 	</header><!--/header-->
-	
-	<section id="form"><!--form-->
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-4 col-sm-offset-1">
-					<div class="login-form"><!--login form-->
-						<h2>Login to your account</h2>
-						<form action="login.php" onsubmit="login.php" method="post">
-							<input name="login_username" id="login_username" type="text" placeholder="Email Address" required/>
-							<div id="username_notification"></div>
-							<input name="login_password" id="login_password" type="password" placeholder="Password" required/>
-							<div id="password_notification"></div>
-							<span>
-								<input type="checkbox" class="checkbox"> 
-								Keep me signed in
-							</span>
-							<button type="submit" class="btn btn-default">Login</button>
-							<?php
-								$reasons = array(
-									"invalid"=>"Invalid username or password. Please try again.",
-									"wrong_combo"=>"The username and password you entered did not match our records. Please try again."
-								);
-							
-								if($_GET['login'] == 'false'){
-									echo "<br><div class=\"alert alert-warning\">".$reasons[$_GET['reason']]."</div>";
-								}
-							?>
-						</form>
-					</div><!--/login form-->
-				</div>
-				<div class="col-sm-1">
-					<h2 class="or">OR</h2>
-				</div>
-				<div class="col-sm-4">
-					<div class="signup-form"><!--sign up form-->
-						<h2>New User Signup!</h2>
-						<form method="post" action="register.php"  >
-							<input type="text" placeholder="First Name" name="firstName" id="firstName"/> <span class="invalidBorderClass" id="firstNameRequired" style="visibility:hidden">Required</span>
-							<input type="text" placeholder="Last Name" name="lastName" id="lastName"/> <span class="invalidBorderClass" id="lastNameRequired" style="visibility:hidden">Required</span>
-							<input type="email" placeholder="Email Address" name="email" id="email"/> <span class="invalidBorderClass" id="emailAddressNotValid" style="visibility:hidden">Not a Valid Email Address</span>
-							<input type="password" placeholder="Password" name="password" id="password"/> <span class="invalidBorderClass" id="passwordNotValid" style="visibility:hidden">Must Be 8 Characters Long</span>
-							<button type="submit" class="btn btn-default">Signup</button>
-							<?php
-								$registerInvalid = array(
-									"invalidRegistration"=>"This is an invalid registration. Please make sure all fields are filled and the password is at least 8 characters"
 
-							);
+	<!-- Content -->
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="category-tab shop-details-tab">
+					<div class="col-sm-12">
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
+							<li><a href="#addresses" data-toggle="tab">Shipping Addresses</a></li>
+							<li><a href="#payment" data-toggle="tab">Payment Methods</a></li>
+							<li><a href="#orders" data-toggle="tab">Orders</a></li>
+							<?php if(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']==1) { ?>
+							<li><a href="#adminListAll" data-toggle="tab">List All Items</a></li>
+							<li><a href="#adminAddItem" data-toggle="tab">Add Item</a></li>
+							<li><a href="#adminDeleteItem" data-toggle="tab">Delete Item</a></li>
+							<li><a href="#adminUpdateItem" data-toggle="tab">Update Item</a></li>
 
-							if($_GET['register'] == 'false'){
-							echo "<br><div class=\"alert alert-warning\">".$registerInvalid[$_GET['reason']]."</div>";
-					}
-					?>
-						</form>
-					</div><!--/sign up form-->
+							<?php } ?>
+
+
+						</ul>
+					</div>
+					<div class="tab-content">
+
+						<!-- Profile details -->
+						<div class="tab-pane fade active in" id="profile" >
+							<div class="col-md-12 login-form">
+								<h2>Profile</h2>
+								<form id="profile_form" name="profile_form" method="post">
+									<div class="col-sm-6">
+										<!-- Output for ID Number-->
+										<div class="row">
+											<div class="col-md-12">
+												<label class="">User ID</label>
+												<input id="user_id" name="user_id" value=<?php echo $user_ID;?> class="form-control" type="text" readonly>
+											</div>
+										</div>
+										<!-- Text input for first name-->
+										<div class="row">
+											<div class="col-md-12">
+												<label class="">First Name</label>
+												<input id="first_name" name="first_name" value=<?php echo $first_name;?> class="form-control" type="text">
+											</div>
+										</div>
+										<!-- Text input for password-->
+										<div class="row">
+											<div class="col-md-12">
+												<label class="">New Password</label>
+												<input id="password" name="password" placeholder="Change password" class="form-control" type="password">
+											</div>
+										</div>
+										<!-- Text input for phone number-->
+										<div class="row">
+											<div class="col-md-12">
+												<label class="">Phone</label>
+												<input id="phone" name="phone" value=<?php echo $phone;?> class="form-control" type="number">
+											</div>
+										</div>
+										<button id="save" name="save" type="submit" class="btn btn-default">Save Updates</button>
+									</div>
+									<div class="col-sm-6">
+										<!-- Input for Email-->
+										<div class="row">
+											<div class="col-md-12">
+												<label class="">Email</label>
+												<input id="email" name="email" value=<?php echo $username;?> class="form-control" type="text">
+											</div>
+										</div>
+										<!-- Text input for last name-->
+										<div class="row">
+											<div class="col-md-12">
+												<label class="">Last Name</label>
+												<input id="last_name" name="last_name" value=<?php echo $last_name;?> class="form-control" type="text">
+											</div>
+										</div>
+										<!-- Text input for confirm new password-->
+										<div class="row">
+											<div class="col-md-12">
+												<label class="">Confirm Password</label>
+												<input id="confirm_password" name="confirm_password" placeholder="Confirm new password" class="form-control" type="password">
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+
+						<!-- Shipping Addresses -->
+						<div class="tab-pane fade" id="addresses" >
+							<div class="col-md-12 login-form">
+								<h2>Shipping Addresses</h2>
+								<form id="profile_form" name="profile_form" method="post">
+									<div class="col-sm-6">
+										<!-- Text input for street address-->
+										<div class="row">
+											<div class="col-md-12">
+												<label class="">Street Address</label>
+												<input id="street_address" name="street_address" value=<?php echo $street_address;?> class="form-control" type="text">
+											</div>
+										</div>
+										<!-- Text input for state-->
+										<div class="row">
+											<div class="col-md-12">
+												<label class="">State</label>
+												<input id="state" name="state" value=<?php echo $state;?> class="form-control" type="text">
+											</div>
+										</div>
+										<button id="save" name="save" type="submit" class="btn btn-default">Save Updates</button>
+									</div>
+									<div class="col-sm-6">
+										<!-- Input for City-->
+										<div class="row">
+											<div class="col-md-12">
+												<label class="">City</label>
+												<input id="city" name="city" value=<?php echo $city;?> class="form-control" type="text">
+											</div>
+										</div>
+										<!-- Text input for zip code-->
+										<div class="row">
+											<div class="col-md-12">
+												<label class="">Zip Code</label>
+												<input id="zip_code" name="zip_code" value=<?php echo $zip;?> class="form-control" type="number">
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+
+						<!-- Payment Methods -->
+						<div class="tab-pane fade active in" id="payment" >
+							<div class="col-sm-12">
+								<p><?echo $description ?></p>
+							</div>
+						</div>
+
+						<!-- Orders -->
+						<div class="tab-pane fade active in" id="orders" >
+							<div class="col-sm-12">
+								<p><?echo $description ?></p>
+							</div>
+						</div>
+
+						<?php
+
+						 if(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']==1)
+						 {
+						 	include 'adminOptions/admin.html';
+
+						 }
+
+						?>
+
+
+
+
+
+
+
+
+					</div>
 				</div>
 			</div>
 		</div>
-	</section><!--/form-->
+	</div>
+	<!-- /Content -->
 	
 	
 	<footer id="footer"><!--Footer-->

@@ -380,8 +380,7 @@ else
 								<div class="product-image-wrapper">
 									<div class="single-products">
 										<div class="productinfo text-center">
-											<!--TODO Adjust the port number as needed, my port number is on 81 so fix if you need to-->
-											<a href="/product-details.html?item_ID=<?php echo $_SESSION["rows"]->item_ID ?>">
+											<a href="product-details.html?item_ID=<?php echo $_SESSION["rows"]->item_ID ?>">
 											<img src=<?php  ; echo '"images/product-details/similar'.$_SESSION["rows"]->item_ID.'-1.jpg"' ?> alt="<?php $_SESSION["rows"]->item_name ?>" />
 											</a>
 											<h2><?php $temp = $_SESSION["rows"]->price;  echo "$temp";?></h2>
