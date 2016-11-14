@@ -107,8 +107,8 @@
 
 
 
-
-                <button id="save" name="save" type="submit" class="btn btn-default">Add Item</button>
+                <!--TODO Add a functionality to show that there is a successful delete -->
+                <button id="save" name="save" type="submit" class="btn btn-default">Delete Item</button>
 
             </div>
 
@@ -150,5 +150,81 @@
 
 <!--Admin Update Item-->
 <div class="tab-pane fade  in" id="adminUpdateItem" >
+
+
+    <div class="login-form">
+        <form class="col-md-12" name="addItemForm" action="adminOptions/updateItem.php" method="POST">
+
+            <!--Left Side Of Form-->
+            <div class="col-md-6">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="">Item ID</label>
+                        <input id="update_id" name="item_id"  class="form-control" type="number" required>
+                    </div>
+                </div>
+
+                <!--Add Item Name-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="">Item Name</label>
+                        <input id="update_name" name="item_name"  class="form-control" type="text" >
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!--Add Item Category-->
+                    <div class="col-md-12">
+                        <label class="">Item Category</label>
+                        <input id="update_category" name="item_category"  class="form-control" type="text" >
+                    </div>
+                </div>
+
+                <!--Add Item Description-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="">Item Description</label>
+                        <input id="update_description" name="item_description"  class="form-control" type="text" >
+                    </div>
+                </div>
+
+                <button id="save" name="save" type="submit" class="btn btn-default">Update Item</button>
+
+            </div>
+
+
+            <!--Right Side of Form-->
+            <div class="col-md-6">
+                <!--Add Item Price-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="">Price</label>
+                        <input id="update_price" name="item_price"  class="form-control" type="number" step="0.01" >
+                    </div>
+                </div>
+
+                <!--Add Item Number Available-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="">Number Available</label>
+                        <input id="update_available" name="item_available"  class="form-control" type="number" >
+                    </div>
+                </div>
+
+                <!--Add Item Tags-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="">Item Tags</label>
+                        <input id="update_tags" name="item_tags"  class="form-control" type="text" >
+                    </div>
+                </div>
+
+            </div>
+
+
+        </form>
+
+
 
 </div>

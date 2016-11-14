@@ -383,7 +383,7 @@ else
 											<a href="product-details.html?item_ID=<?php echo $_SESSION["rows"]->item_ID ?>">
 											<img src=<?php  ; echo '"images/product-details/similar'.$_SESSION["rows"]->item_ID.'-1.jpg"' ?> alt="<?php $_SESSION["rows"]->item_name ?>" />
 											</a>
-											<h2><?php $temp = $_SESSION["rows"]->price;  echo "$temp";?></h2>
+											<h2><?php $temp = $_SESSION["rows"]->price;  echo "$$temp";?></h2>
 											<p><?php $temp = $_SESSION["rows"]->item_name; echo "$temp";?></p>
 											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 										</div>
