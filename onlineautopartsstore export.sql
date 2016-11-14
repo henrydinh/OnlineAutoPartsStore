@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Nov 06, 2016 at 12:48 AM
+-- Generation Time: Nov 07, 2016 at 10:11 PM
 -- Server version: 5.5.49-log
 -- PHP Version: 7.0.9
 
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `item` (
 --
 
 INSERT INTO `item` (`item_ID`, `item_name`, `price`, `num_available`, `category`, `description`, `tags`) VALUES
-(1, 'Grant 61035 Steering Wheel - Direct Fit', 258.39, 100, 'Interior Accessories', 'Series: Grant Revolution\nProduct Fit: Direct Fit\nQuantity Sold: Sold Individually\nGrip Finish: Black and burlwood\nGrip Material: Plastic\n\nGRANT REVOLUTION STEERING WHEEL, BLACK -- 4-spoke design; Includes installation instructions; Features a black polyurethane grip with perforated burlwood plastic inserts; Made to exacting standards to guarantee an OEM fit and finish; Utilizes your vehicle''s existing airbag module, horn switch, and other switches; Can only be used on vehicles with factory switches; Factory switches not included.\nHighlights', 'interior steering wheel accessory');
+(1, 'Grant 61035 Steering Wheel - Direct Fit', 258.39, 100, 'Interior Accessories', 'Series: Grant Revolution<br> Product Fit: Direct Fit<br> Grip Finish: Black and burlwood<br> Grip Material: Plastic <br> <br> GRANT REVOLUTION STEERING WHEEL, BLACK -- 4-spoke design; Includes installation instructions; Features a black polyurethane grip with perforated burlwood plastic inserts; Made to exacting standards to guarantee an OEM fit and finish; Utilizes your vehicle''''s existing airbag module, horn switch, and other switches; Can only be used on vehicles with factory switches; Factory switches not included.', 'interior steering wheel accessory');
 
 -- --------------------------------------------------------
 
