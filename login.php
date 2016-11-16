@@ -43,19 +43,19 @@
 				$_SESSION["city"] = $city;
 				$_SESSION["state"] = $state;
 				$_SESSION["zip"] = $zip;
+<<<<<<< HEAD
                 $_SESSION["isAdmin"] = $isAdmin;
 				//header('Location: my-account.html');
+=======
+>>>>>>> refs/remotes/origin/master
 				echo 'ok';
 			}else{
-				//header('Location: login.html?login=false&reason=wrong_combo');
 				echo 'The username and password you entered did not match our records. Please try again.';
 			}
 			
 			// Close Mysql connection
 			$con->close();
 		}else{
-			// Redirect to login.html
-			//header('Location: login.html?login=false&reason=invalid');
 			echo 'Invalid username or password. Please try again.';
 		}
 	}
