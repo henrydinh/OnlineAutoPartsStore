@@ -48,15 +48,7 @@ $idReset1 = "SELECT MAX( `item_ID` ) FROM `item` ;";
 if ($stmt = mysqli_query($link, $deleteItemQuery))
 {
 
-   /* $stmt2 = $link->query($sql);
-
-    $stmt2obj = $stmt2->fetch_object();
-
-    $maxID = $stmt2obj->MAX('item_ID');
-
-
-    $idReset2 = "ALTER TABLE `item` AUTO_INCREMENT = $maxID;";
-    mysqli_query($link, $idReset2);*/
+   echo "Item Successfully Deleted";
 
     mysqli_stmt_close($stmt);
 
@@ -64,7 +56,6 @@ if ($stmt = mysqli_query($link, $deleteItemQuery))
 
 /*TODO Add functionality where upon delete it will say something like "delete confirmed"*/
 
-header('Location: /onlineautopartsstore/my-account.html#success=success');
 
 
 

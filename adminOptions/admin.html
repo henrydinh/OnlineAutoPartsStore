@@ -13,7 +13,7 @@
 <!--Admin Add Item-->
 <div class="tab-pane fade in" id="adminAddItem" >
     <div class="login-form">
-        <form class="col-md-12" name="addItemForm" action="adminOptions/add.php" method="POST">
+        <form class="col-md-12" id="addItemForm" name="addItemForm" action="adminOptions/add.php" method="POST">
 
             <!--Left Side Of Form-->
             <div class="col-md-6">
@@ -42,6 +42,8 @@
                 </div>
 
                 <button id="save" name="save" type="submit" class="btn btn-default">Add Item</button>
+                <br>
+                <div id="add_alert_box" class="alert alert-warning"></div>
 
             </div>
 
@@ -83,7 +85,7 @@
 <div class="tab-pane fade  in" id="adminDeleteItem" >
 
     <div class="login-form">
-        <form class="col-md-12" name="addItemForm" action="adminOptions/delete.php" method="POST">
+        <form class="col-md-12" id="deleteItemForm" name="deleteItemForm"  method="POST">
 
             <!--Left Side Of Form-->
             <div class="col-md-6">
@@ -109,6 +111,8 @@
 
                 <!--TODO Add a functionality to show that there is a successful delete -->
                 <button id="save" name="save" type="submit" class="btn btn-default">Delete Item</button>
+                <br>
+                <div id="delete_alert_box" class="alert alert-warning"></div>
 
             </div>
 
@@ -153,7 +157,7 @@
 
 
     <div class="login-form">
-        <form class="col-md-12" name="addItemForm" action="adminOptions/updateItem.php" method="POST">
+        <form class="col-md-12" id="updateItemForm" name="updateItemForm" p" method="POST">
 
             <!--Left Side Of Form-->
             <div class="col-md-6">
@@ -190,6 +194,8 @@
                 </div>
 
                 <button id="save" name="save" type="submit" class="btn btn-default">Update Item</button>
+                <br>
+                <div id="update_alert_box" class="alert alert-warning"></div>
 
             </div>
 

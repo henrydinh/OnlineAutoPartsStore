@@ -10,8 +10,7 @@ if (!$link)
 
 $name=$price=$available=$category=$description=$tags=$id="";
 
-/*$deleteItemQuery = "DELETE FROM item where item_id like '%$itemID' AND item_name like '%$name'
-                      AND price like '%$price' AND category like '%$category';";*/
+
 
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
@@ -92,8 +91,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 }
 
-
-header('Location: /onlineautopartsstore/my-account.html');
+    echo "Item $id Successfully Updated";
 
 
 

@@ -16,41 +16,41 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     $name = clean_input($_POST["item_name"]);
     if ($name == null || $name =="")
     {
-        header('Location: onlineautopartsstore/index.html');
+        echo "Invalid Input Please Try Again";
         exit();
     }
 
     $price = clean_input($_POST["item_price"]);
     if ($price == null || $price =="")
     {
-        header('Location: onlineautopartsstore/index.html');
+        echo "Invalid Input Please Try Again";
         exit();
     }
     $available = clean_input($_POST["item_available"]);
     if ($available == null || $available =="")
     {
-        header('Location: onlineautopartsstore/index.html');
+        echo "Invalid Input Please Try Again";
         exit();
     }
 
     $category = clean_input($_POST["item_category"]);
     if ($category == null || $category =="")
     {
-        header('Location: onlineautopartsstore/index.html');
+        echo "Invalid Input Please Try Again";
         exit();
     }
 
     $description = clean_input($_POST["item_description"]);
     if ($description == null || $description =="")
     {
-        header('Location: onlineautopartsstore/index.html');
+        echo "Invalid Input Please Try Again";
         exit();
     }
 
     $tags = clean_input($_POST["item_tags"]);
     if ($tags == null || $tags =="")
     {
-        header('Location: onlineautopartsstore/index.html');
+        echo "Invalid Input Please Try Again";
         exit();
     }
 
@@ -68,13 +68,13 @@ $insertItemQuery = "INSERT INTO `onlineautopartsstore`.`item` (`item_ID`, `item_
 
 if ($stmt = mysqli_query($link, $insertItemQuery))
 {
+    echo "Successfully Added";
     mysqli_stmt_close($stmt);
 
 }
 
 /*TODO Add functionality where upon add it confirms add on screen*/
 
-header('Location: /onlineautopartsstore/my-account.html#success=success');
 
 
 
