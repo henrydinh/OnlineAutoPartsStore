@@ -26,7 +26,7 @@ $(document).ready(function() {
             success: function(result){
                 console.log(result);
                 $('#add_alert_box').text(result);
-                $('#add_alert_box').show();
+                $('#add_alert_box').hide().fadeIn('fast').delay(5000).fadeOut('fast');
             }
         });
         return false;
@@ -53,7 +53,7 @@ $(document).ready(function() {
             success: function(result){
                 console.log(result);
                 $('#update_alert_box').text(result);
-                $('#update_alert_box').show();
+                $('#update_alert_box').hide().fadeIn('fast').delay(5000).fadeOut('fast');
             }
         });
         return false;

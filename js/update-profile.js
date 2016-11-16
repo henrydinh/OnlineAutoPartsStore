@@ -107,7 +107,6 @@ $(document).ready(function() {
 	function submitProfileForm(){
 		// serialize the form
 		var data = $('#profile_form').serialize();
-		console.log(data);
 		// use AJAX to verify login details with database
 		$.ajax({
 			type: 'POST',
@@ -116,7 +115,7 @@ $(document).ready(function() {
 			success: function(result){
 				console.log(result);
 				$('#profile_alert_box').text(result);
-				$('#profile_alert_box').show();
+				$('#profile_alert_box').hide().fadeIn('fast').delay(5000).fadeOut('fast');
 			}
 		});
 		return false;

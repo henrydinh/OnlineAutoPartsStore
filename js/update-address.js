@@ -11,7 +11,6 @@ $(document).ready(function() {
 	function submitAddressForm(){
 		// serialize the form
 		var data = $('#address_form').serialize();
-		console.log(data);
 		// use AJAX to verify login details with database
 		$.ajax({
 			type: 'POST',
@@ -20,7 +19,7 @@ $(document).ready(function() {
 			success: function(result){
 				console.log(result);
 				$('#address_alert_box').text(result);
-				$('#address_alert_box').show();
+				$('#address_alert_box').hide().fadeIn('fast').delay(5000).fadeOut('fast');
 			}
 		});
 		return false;
