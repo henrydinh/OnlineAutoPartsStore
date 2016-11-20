@@ -1,3 +1,8 @@
+<?php
+	// Check if the user is logged in and redirect to login page if not
+	include 'check-logged-in.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,11 +91,19 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
 								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
 								<li><a href="cart.html" class="active"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+								<?php
+									if(isset($_SESSION['user_ID']) && isset($_SESSION['username'])){
+										// show the account and logout button if logged in
+										echo '<li><a href="my-account.html" class="" id="account_button"><i class="fa fa-user"></i> Account</a></li>';
+										echo '<li><a href="logout.php" class="" id="logout_button"><i class="fa fa-sign-out"></i> Logout</a></li>';
+									}else{
+										// show the login button if not logged in
+										echo '<li><a href="login.html" class="" id="login_button"><i class="fa fa-lock"></i> Login</a></li>';
+									}
+								?>
 							</ul>
 						</div>
 					</div>

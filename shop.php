@@ -1,7 +1,21 @@
 <?php
 
 
-session_start();
+	// check if the user is logged in. Else redirect to login page
+	session_start();
+
+	if(isset($_SESSION['user_ID']) && isset($_SESSION['username'])){
+		$username = $_SESSION['username'];
+		$user_ID = $_SESSION['user_ID'];
+		$first_name = $_SESSION['first_name'];
+		$last_name = $_SESSION['last_name'];
+		$phone = $_SESSION['phone'];
+		$street_address = $_SESSION['street_address'];
+		$city = $_SESSION['city'];
+		$state = $_SESSION['state'];
+		$zip = $_SESSION['zip'];
+		$isAdmin = $_SESSION['isAdmin'];
+	}
 
 
 if (!empty($_GET["keywords"]))
@@ -158,11 +172,19 @@ else
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
 								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
 								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+								<?php
+									if(isset($_SESSION['user_ID']) && isset($_SESSION['username'])){
+										// show the account and logout button if logged in
+										echo '<li><a href="my-account.html" class="" id="account_button"><i class="fa fa-user"></i> Account</a></li>';
+										echo '<li><a href="logout.php" class="" id="logout_button"><i class="fa fa-sign-out"></i> Logout</a></li>';
+									}else{
+										// show the login button if not logged in
+										echo '<li><a href="login.html" class="" id="login_button"><i class="fa fa-lock"></i> Login</a></li>';
+									}
+								?>
 							</ul>
 						</div>
 					</div>
