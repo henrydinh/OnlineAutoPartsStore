@@ -7,10 +7,7 @@
 	}
 
 	// conect to database
-	$con = mysqli_connect('localhost', 'root', 'root', 'onlineautopartsstore');
-	if(!$con){
-		die('Could not connect: '.mysqli_error($con));
-	}
+	include 'database-connect.php';
 	
 	// Query to get item from database
 	$sql = "SELECT * FROM Item WHERE `item_ID`=$item_ID LIMIT 1";

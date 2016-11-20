@@ -1,9 +1,32 @@
 <?php
+	// Check if the user is logged in
+	include 'check-logged-in.php';
+
+	// attributes to get for order summary
+	$transaction_ID = "";
+	$date = "";
+	$total_price = "";
+	
+	// get the transaction_ID from the url if any, else go back to my-account page
+	if(!empty($_GET['transaction_ID']) && $user_ID == $_GET['user_ID']){
+		$transaction_ID = $_GET['transaction_ID'];
+	}else{
+		header('Location: my-account.html');
+	}
+
 	// connect to database
 	include 'database-connect.php';
 	
-	// Check if the user is logged in
-	include 'check-logged-in.php';
+	// Query to get transaction info
+	$t_sql = "SELECT *
+			FROM Transaction t
+			WHERE t.transaction_ID = $transaction_ID";
+	$result = $con->query($t_sql);
+	
+	while($r = $result->fetch_object()){
+		$date = $r->date;
+		$total_price = $r->total_price;
+	}
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +36,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Account | Comet Car Parts</title>
+    <title>Order Summary | E-Shopper</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -21,24 +44,10 @@
     <link href="css/animate.css" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/responsive.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/register.css" type="text/css">
-	<link href="css/login.css" rel="stylesheet" type="text/css">
-	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="js/jquery.js"></script>
-	<script src="js/price-range.js"></script>
-    <script src="js/jquery.scrollUp.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/main.js"></script>
-	<script src="http://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
-	<script src="js/update-profile.js"></script>
-	<script src="js/update-address.js"></script>
-	<script src="js/adminOptions.js"></script>
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
-    <![endif]-->
+    <![endif]-->       
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
@@ -73,7 +82,7 @@
 				</div>
 			</div>
 		</div><!--/header_top-->
-
+		
 		<div class="header-middle"><!--header-middle-->
 			<div class="container">
 				<div class="row">
@@ -92,7 +101,7 @@
 									<li><a href="">UK</a></li>
 								</ul>
 							</div>
-
+							
 							<div class="btn-group">
 								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
 									DOLLAR
@@ -114,7 +123,7 @@
 								<?php
 									if(isset($_SESSION['user_ID']) && isset($_SESSION['username'])){
 										// show the account and logout button if logged in
-										echo '<li><a href="my-account.html" class="active" id="account_button"><i class="fa fa-user"></i> Account</a></li>';
+										echo '<li><a href="my-account.html" class="" id="account_button"><i class="fa fa-user"></i> Account</a></li>';
 										echo '<li><a href="logout.php" class="" id="logout_button"><i class="fa fa-sign-out"></i> Logout</a></li>';
 									}else{
 										// show the login button if not logged in
@@ -127,7 +136,7 @@
 				</div>
 			</div>
 		</div><!--/header-middle-->
-
+	
 		<div class="header-bottom"><!--header-bottom-->
 			<div class="container">
 				<div class="row">
@@ -146,18 +155,18 @@
 								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="shop.php">Products</a></li>
-										<li><a href="product-details.html">Product Details</a></li>
-										<li><a href="checkout.html">Checkout</a></li>
-										<li><a href="cart.html">Cart</a></li>
-										<li><a href="login.html" class="active">Login</a></li>
+										<li><a href="product-details.html">Product Details</a></li> 
+										<li><a href="checkout.html" class="active">Checkout</a></li> 
+										<li><a href="cart.html">Cart</a></li> 
+										<li><a href="login.html">Login</a></li> 
                                     </ul>
-                                </li>
+                                </li> 
 								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="blog.html">Blog List</a></li>
 										<li><a href="blog-single.html">Blog Single</a></li>
                                     </ul>
-                                </li>
+                                </li> 
 								<li><a href="404.html">404</a></li>
 								<li><a href="contact-us.html">Contact</a></li>
 							</ul>
@@ -173,216 +182,138 @@
 		</div><!--/header-bottom-->
 	</header><!--/header-->
 
-	<!-- Content -->
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="category-tab shop-details-tab">
-					<div class="col-sm-12">
-						<ul class="nav nav-tabs">
-							<li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
-							<li><a href="#addresses" data-toggle="tab">Shipping Addresses</a></li>
-							<li><a href="#payment" data-toggle="tab">Payment Methods</a></li>
-							<li><a href="#orders" data-toggle="tab">Orders</a></li>
-							<?php if(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']==1) { ?>
-							<li><a href="#adminListAll" data-toggle="tab">List All Items</a></li>
-							<li><a href="#adminAddItem" data-toggle="tab">Add Item</a></li>
-							<li><a href="#adminDeleteItem" data-toggle="tab">Delete Item</a></li>
-							<li><a href="#adminUpdateItem" data-toggle="tab">Update Item</a></li>
-
-							<?php } ?>
-
-
-						</ul>
+	<section id="cart_items">
+		<div class="container">
+			<div class="shopper-info">
+				<h2>Order Details</h2>
+				<p>Ordered on <?php echo $date; ?> | Order ID# <?php echo $transaction_ID; ?></p>
+			</div>
+			
+			<div class="shopper-informations">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="order-details">
+							<h2>Shipping Address</h2>
+							<p><?php echo $username; ?></p>
+							<p><?php echo $first_name.' '.$last_name; ?></p>
+							<p><?php echo $street_address; ?></p>
+							<p><?php echo $city.', '.$state.' '.$zip; ?></p>
+						</div>
 					</div>
-					<div class="tab-content">
-
-						<!-- Profile details -->
-						<div class="tab-pane fade active in" id="profile" >
-							<div class="col-md-12 login-form">
-								<h2>Profile</h2>
-								<form id="profile_form" name="profile_form" method="post">
-									<div class="col-sm-6">
-										<!-- Output for ID Number-->
-										<div class="row">
-											<div class="col-md-12">
-												<label class="">User ID</label>
-												<input id="user_ID" name="user_ID" value=<?php echo "\"$user_ID\"";?> class="form-control" type="text" readonly>
-											</div>
-										</div>
-										<!-- Text input for first name-->
-										<div class="row">
-											<div class="col-md-12">
-												<label class="">First Name</label>
-												<input id="first_name" name="first_name" value=<?php echo "\"$first_name\"";?> class="form-control" type="text">
-											</div>
-										</div>
-										<!-- Text input for password-->
-										<div class="row">
-											<div class="col-md-12">
-												<label class="">New Password</label>
-												<input id="password" name="password" placeholder="Change password" class="form-control" type="password">
-												<div id="password_notification"></div>
-											</div>
-										</div>
-										<!-- Text input for phone number-->
-										<div class="row">
-											<div class="col-md-12">
-												<label class="">Phone</label>
-												<input id="phone" name="phone" value=<?php echo "\"$phone\"";?> class="form-control" type="number">
-											</div>
-										</div>
-										<button id="update_profile_submit" name="update_profile_submit" type="submit" class="btn btn-default">Save Updates</button>
-										<br>
-										<div id="profile_alert_box" class="alert alert-warning"></div>
-									</div>
-									<div class="col-sm-6">
-										<!-- Input for Email-->
-										<div class="row">
-											<div class="col-md-12">
-												<label class="">Email</label>
-												<input id="email" name="email" value=<?php echo "\"$username\"";?> class="form-control" type="text">
-												<div id="username_notification"></div>
-											</div>
-										</div>
-										<!-- Text input for last name-->
-										<div class="row">
-											<div class="col-md-12">
-												<label class="">Last Name</label>
-												<input id="last_name" name="last_name" value=<?php echo "\"$last_name\"";?> class="form-control" type="text">
-											</div>
-										</div>
-										<!-- Text input for confirm new password-->
-										<div class="row">
-											<div class="col-md-12">
-												<label class="">Confirm Password</label>
-												<input id="confirm_password" name="confirm_password" placeholder="Confirm new password" class="form-control" type="password">
-												<div id="confirmed_password_notification"></div>
-											</div>
-										</div>
-									</div>
-								</form>
-							</div>
+					<div class="col-md-4">
+						<div class="order-details">
+							<h2>Payment Method</h2>
+							<p>Credit ****</p>
 						</div>
-
-						<!-- Shipping Addresses -->
-						<div class="tab-pane fade" id="addresses" >
-							<div class="col-md-12 login-form">
-								<h2>Shipping Addresses</h2>
-								<form id="address_form" name="address_form" method="post">
-									<div class="col-sm-6">
-										<!-- Text input for street address-->
-										<div class="row">
-											<div class="col-md-12">
-												<label class="">Street Address</label>
-												<input id="street_address" name="street_address" value=<?php echo "\"$street_address\"";?> class="form-control" type="text">
-											</div>
-										</div>
-										<!-- Text input for state-->
-										<div class="row">
-											<div class="col-md-12">
-												<label class="">State</label>
-												<input id="state" name="state" value=<?php echo "\"$state\"";?> class="form-control" type="text">
-											</div>
-										</div>
-										<button id="update_address_submit" name="update_address_submit" type="submit" class="btn btn-default">Save Updates</button>
-										<br>
-										<div id="address_alert_box" class="alert alert-warning"></div>
-									</div>
-									<div class="col-sm-6">
-										<!-- Input for City-->
-										<div class="row">
-											<div class="col-md-12">
-												<label class="">City</label>
-												<input id="city" name="city" value=<?php echo "\"$city\"";?> class="form-control" type="text">
-											</div>
-										</div>
-										<!-- Text input for zip code-->
-										<div class="row">
-											<div class="col-md-12">
-												<label class="">Zip Code</label>
-												<input id="zip_code" name="zip_code" value=<?php echo "\"$zip\"";?> class="form-control" type="number">
-											</div>
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-
-						<!-- Payment Methods -->
-						<div class="tab-pane fade" id="payment" >
-							<div class="col-md-12 login-form">
-								<h2>Payment Methods</h2>
-							</div>
-						</div>
-
-						<!-- Orders -->
-						<div class="tab-pane fade" id="orders" >
-							<div class="col-md-12 login-form">
-								<h2>Orders</h2>
-								<table class="table-bordered table table-bordered table-responsive">
-									<thead>
-										<tr>
-											<th>Transaction ID</th>
-											<th>Date</th>
-											<th>Total Price</th>
-											<th>Order Summary</th>
-										</tr>
-									</thead>
-									<tbody>
-										<?php
-											// SQL to get all trans with user's ID number ($user_ID)
-											$t_sql = "SELECT *
-													FROM Transaction t
-													JOIN User_transactions ut ON t.transaction_ID = ut.transaction_ID
-													WHERE ut.user_ID = $user_ID";
-													
-											$transactions = $con->query($t_sql);
-											while($all_t = $transactions->fetch_object()){
-												$t_ID = $all_t->transaction_ID;
-												
-												echo '<tr>';
-												echo '<td>';
-												echo $t_ID;
-												echo '</td>';
-												
-												echo '<td>';
-												echo $all_t->date;
-												echo '</td>';
-												
-												echo '<td>';
-												echo $all_t->total_price;
-												echo '</td>';
-												
-												echo '<td>';
-												echo '<a href="order-summary.html?user_ID='.$user_ID.'&transaction_ID='.$t_ID.'">Summary</a>';
-												echo '</td>';
-												echo '</tr>';
-											}
-										?>
-									</tbody>
-								</table>
-							</div>
-						</div>
-						
-						<?php
-
-						 if(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']==1)
-						 {
-						 	include 'adminOptions/admin.html';
-
-						 }
-
-						?>
-
 					</div>
+					<div class="col-md-4">
+						<div class="order-details">
+							<h2>Order Summary</h2>
+							<div class="col-md-6">
+								<div class="row">
+									<p>Item(s) Subtotal:</p>
+								</div>
+								<div class="row">
+									<p>Shipping & Handling:</p>
+								</div>
+								<div class="row">
+									<p>Total before tax:</p>
+								</div>
+								<div class="row">
+									<p>Estimated tax:</p>
+								</div>
+								<div class="row order-sum-grand-total">
+									<p>Grand Total:</p>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="row">
+									<div class="order-summary-right">
+										<p>$<?php echo $total_price; ?></p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="order-summary-right">
+										<p>$0.00</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="order-summary-right">
+										<p>$<?php echo $total_price; ?></p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="order-summary-right">
+										<p>$0.00</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="order-summary-right order-sum-grand-total">
+										<p>$<?php echo $total_price; ?></p>
+									</div>
+								</div>
+							</div>
+						</div>	
+					</div>	
 				</div>
 			</div>
+			
+			<div class="table-responsive cart_info">
+				<table class="table table-condensed">
+					<thead>
+						<tr class="cart_menu">
+							<td class="image">Item</td>
+							<td class="description"></td>
+							<td class="price">Price</td>
+							<td class="quantity">Quantity</td>
+							<td class="total">Item Total Cost</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+							// Get items in the transaction
+							$sql = "SELECT i.item_name, i.item_ID, i.price, ti.quantity
+									FROM Item i
+									JOIN Transaction_items ti ON i.item_ID = ti.item_ID
+									WHERE ti.transaction_ID = $transaction_ID";
+							$result = $con->query($sql);
+							
+							while($row = $result->fetch_object()){
+								$item_total_price = $row->quantity * $row->price;
+							
+								echo '<tr>';
+								echo '<td class="cart_product">';
+								echo '<a href="product-details.html?item_ID='.$row->item_ID.'"><img src="images/cart/one.png" alt=""></a>';
+								echo '</td>';
+								
+								echo '<td class="cart_description">';
+								echo '<h4><a href="product-details.html?item_ID='.$row->item_ID.'">'.$row->item_name.'</a></h4>';
+								echo '<p>Item ID: '.$row->item_ID.'</p>';
+								echo '</td>';
+								
+								echo '<td class="cart_price">';
+								echo '<p>$'.$row->price.'</p>';
+								echo '</td>';
+								
+								echo '<td class="cart_quantity">';
+								echo '<p>'.$row->quantity.'</p>';
+								echo '</td>';
+								
+								echo '<td class="cart_total">';
+								echo '<p class="cart_total_price">$'.$item_total_price.'</p>';
+								echo '</td>';
+								echo '</tr>';
+							}
+						?>
+					</tbody>
+				</table>
+			</div>
+			
+			
 		</div>
-	</div>
-	<!-- /Content -->
-	
-	
+	</section> <!--/#cart_items-->
+
 	<footer id="footer"><!--Footer-->
 		<div class="footer-top">
 			<div class="container">
@@ -475,7 +406,7 @@
 								<li><a href="">Contact Us</a></li>
 								<li><a href="">Order Status</a></li>
 								<li><a href="">Change Location</a></li>
-								<li><a href="">FAQâ€™s</a></li>
+								<li><a href="">FAQ’s</a></li>
 							</ul>
 						</div>
 					</div>
@@ -533,12 +464,20 @@
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright Â© 2013 E-SHOPPER Inc. All rights reserved.</p>
+					<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
 					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
 				</div>
 			</div>
 		</div>
 		
 	</footer><!--/Footer-->
+	
+
+
+    <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
