@@ -2520,4 +2520,25 @@ h2.title {
   color: #FE980F;
 }
 
+.order-details {
+  color: #696763;
+  margin: 20px;
+  margin-bottom: 40px;
+}
 
+.order-details h2 {
+  color: #696763;
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.order-summary-right {
+	float: right;
+}
+
+.order-sum-grand-total {
+	color: #FE980F;
+	font-weight: 700;
+	font-size: 16px;
+}
