@@ -56,7 +56,7 @@ while ($allItems = $items->fetch_object())
             </td>
 
             <td>
-                <a href="/onlineautopartsstore/product-details.html?item_ID=<?php echo $allItems->item_ID ?>">Page</a>
+                <a href="product-details.html?item_ID=<?php echo $allItems->item_ID ?>">Page</a>
             </td>
 
 

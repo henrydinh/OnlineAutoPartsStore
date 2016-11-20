@@ -36,7 +36,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Checkout | E-Shopper</title>
+    <title>Order Summary | E-Shopper</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -271,73 +271,41 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="images/cart/one.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>$59</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
-							</td>
-						</tr>
-
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="images/cart/two.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>$59</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
-							</td>
-						</tr>
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="images/cart/three.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>$59</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
-							</td>
-						</tr>
+						<?php
+							// Get items in the transaction
+							$sql = "SELECT i.item_name, i.item_ID, i.price, ti.quantity
+									FROM Item i
+									JOIN Transaction_items ti ON i.item_ID = ti.item_ID
+									WHERE ti.transaction_ID = $transaction_ID";
+							$result = $con->query($sql);
+							
+							while($row = $result->fetch_object()){
+								$item_total_price = $row->quantity * $row->price;
+							
+								echo '<tr>';
+								echo '<td class="cart_product">';
+								echo '<a href="product-details.html?item_ID='.$row->item_ID.'"><img src="images/cart/one.png" alt=""></a>';
+								echo '</td>';
+								
+								echo '<td class="cart_description">';
+								echo '<h4><a href="product-details.html?item_ID='.$row->item_ID.'">'.$row->item_name.'</a></h4>';
+								echo '<p>Item ID: '.$row->item_ID.'</p>';
+								echo '</td>';
+								
+								echo '<td class="cart_price">';
+								echo '<p>$'.$row->price.'</p>';
+								echo '</td>';
+								
+								echo '<td class="cart_quantity">';
+								echo '<p>'.$row->quantity.'</p>';
+								echo '</td>';
+								
+								echo '<td class="cart_total">';
+								echo '<p class="cart_total_price">$'.$item_total_price.'</p>';
+								echo '</td>';
+								echo '</tr>';
+							}
+						?>
 					</tbody>
 				</table>
 			</div>
