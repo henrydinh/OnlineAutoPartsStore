@@ -77,8 +77,9 @@ $(document).ready(function() {
 			data: data,
 			success: function(result){
 				var str_result = str = result.replace(/\r?\n|\r/g, " ");
-				if(str_result == "ok "){
-					console.log("going to my account");
+				str_result = str_result.trim();
+				console.log(str_result);
+				if(str_result == "ok"){
 					window.location = 'my-account.html';
 				}else{	
 					$('#register_alert_box').text(result);

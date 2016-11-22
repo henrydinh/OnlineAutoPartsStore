@@ -32,32 +32,38 @@
 				session_start();
 				$sql = "SELECT * FROM User WHERE email='$emailAddress' AND hashed_password='$password' LIMIT 1";
 				$result = $con->query($sql);
-				$user_obj = $result->fetch_object();
 				
-				// Get user_ID, first_name, last_name, phone, address, and email to store in session
-				$user_ID = $user_obj->user_ID;
-				$first_name = $user_obj->first_name;
-				$last_name = $user_obj->last_name;
-				$phone = $user_obj->phone_number;
-				$street_address = $user_obj->street_address;
-				$city = $user_obj->city;
-				$state = $user_obj->state;
-				$zip = $user_obj->zip;
-				$isAdmin = $user_obj->is_admin;
-				
-				// store in session variables
-				$_SESSION["username"] = $username;
-				$_SESSION["user_ID"] = $user_ID;
-				$_SESSION["first_name"] = $first_name;
-				$_SESSION["last_name"] = $last_name;
-				$_SESSION["phone"] = $phone;
-				$_SESSION["street_address"] = $street_address;
-				$_SESSION["city"] = $city;
-				$_SESSION["state"] = $state;
-				$_SESSION["zip"] = $zip;
-				$_SESSION["isAdmin"] = $isAdmin;
+				if($result->num_rows > 0){
+					//fetch user object from result
+					$user_obj = $result->fetch_object();
+					
+					// Get user_ID, first_name, last_name, phone, address, and email to store in session
+					$user_ID = $user_obj->user_ID;
+					$first_name = $user_obj->first_name;
+					$last_name = $user_obj->last_name;
+					$phone = $user_obj->phone_number;
+					$street_address = $user_obj->street_address;
+					$city = $user_obj->city;
+					$state = $user_obj->state;
+					$zip = $user_obj->zip;
+					$isAdmin = $user_obj->is_admin;
+					
+					// store in session variables
+					$_SESSION["username"] = $emailAddress;
+					$_SESSION["user_ID"] = $user_ID;
+					$_SESSION["first_name"] = $first_name;
+					$_SESSION["last_name"] = $last_name;
+					$_SESSION["phone"] = $phone;
+					$_SESSION["street_address"] = $street_address;
+					$_SESSION["city"] = $city;
+					$_SESSION["state"] = $state;
+					$_SESSION["zip"] = $zip;
+					$_SESSION["isAdmin"] = $isAdmin;
 
-				echo 'ok';
+					echo 'ok';
+				}else{
+					echo 'not ok';
+				}
 			}
 			
 			// Close Mysql connection
