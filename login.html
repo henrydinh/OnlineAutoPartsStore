@@ -24,8 +24,8 @@
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
 	<script src="http://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+	<script src="js/sign-up.js"></script>
 	<script src="js/login.js"></script>
-	<script src="js/register.js"></script>
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -119,22 +119,18 @@
 				<div class="col-sm-4">
 					<div class="signup-form"><!--sign up form-->
 						<h2>New User Signup!</h2>
-						<form method="post" action="register.php"  >
-							<input type="text" placeholder="First Name" name="firstName" id="firstName"/> <span class="invalidBorderClass" id="firstNameRequired" style="visibility:hidden">Required</span>
-							<input type="text" placeholder="Last Name" name="lastName" id="lastName"/> <span class="invalidBorderClass" id="lastNameRequired" style="visibility:hidden">Required</span>
-							<input type="email" placeholder="Email Address" name="email" id="email"/> <span class="invalidBorderClass" id="emailAddressNotValid" style="visibility:hidden">Not a Valid Email Address</span>
-							<input type="password" placeholder="Password" name="password" id="password"/> <span class="invalidBorderClass" id="passwordNotValid" style="visibility:hidden">Must Be 8 Characters Long</span>
-							<button type="submit" class="btn btn-default">Signup</button>
-							<?php
-								$registerInvalid = array(
-									"invalidRegistration"=>"This is an invalid registration. Please make sure all fields are filled and the password is at least 8 characters"
-
-							);
-
-							if($_GET['register'] == 'false'){
-							echo "<br><div class=\"alert alert-warning\">".$registerInvalid[$_GET['reason']]."</div>";
-					}
-					?>
+						<form method="post" name="register_form" id="register_form">
+							<input type="text" placeholder="First Name" name="firstName" id="firstName" required/> 
+							<div class="invalidBorderClass" id="firstNameRequired">Required</div>
+							<input type="text" placeholder="Last Name" name="lastName" id="lastName" required/> 
+							<div class="invalidBorderClass" id="lastNameRequired">Required</div>
+							<input type="email" placeholder="Email Address" name="email" id="email" required/> 
+							<div class="invalidBorderClass" id="emailAddressNotValid">Not a Valid Email Address</div>
+							<input type="password" placeholder="Password" name="password" id="password" required/> 
+							<div class="invalidBorderClass" id="passwordNotValid">Must Be 8 Characters Long</div>
+							<button id="register_submit" name="register_submit" type="submit" class="btn btn-default">Signup</button>
+							<br>
+							<div id="register_alert_box" class="alert alert-warning"></div>
 						</form>
 					</div><!--/sign up form-->
 				</div>

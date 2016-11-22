@@ -3,10 +3,10 @@
 	$username = $password = "";
 	
 	// check if the request is POST
-	if (isset($_POST['login_submit'])){
+	if(isset($_POST['login_submit'])){
 		$username = cleanInput($_POST["login_username"]);
 		$password = cleanInput($_POST["login_password"]);
-		if(validateUsername($username) && validatePassword($password)){
+		if(validateUsername($username) || validatePassword($password)){
 			// Connect to database
 			$con = mysqli_connect('localhost', 'root', 'root', 'onlineautopartsstore');
 			if(!$con){
@@ -43,9 +43,7 @@
 				$_SESSION["city"] = $city;
 				$_SESSION["state"] = $state;
 				$_SESSION["zip"] = $zip;
-
                 $_SESSION["isAdmin"] = $isAdmin;
-				//header('Location: my-account.html');
 
 				echo 'ok';
 			}else{
@@ -59,6 +57,8 @@
 		}
 	}
 
+	// ***** HELPER FUNCTIONS BELOW *****
+	
 	// cleans data by trimming, stripping slashes, and htmlspecialchars
 	function cleanInput($data){
 		$data = trim($data);
