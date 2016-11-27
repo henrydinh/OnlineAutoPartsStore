@@ -24,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         exit();
     }
 
-    $userID = $_POST['user_id_number'];
+    $userID = clean_input($_POST['user_id_number']);
 
 
 
