@@ -73,7 +73,6 @@ if ($stmt = mysqli_query($link, $insertItemQuery))
 
 }
 
-/*TODO Add functionality where upon add it confirms add on screen*/
 
 
 
