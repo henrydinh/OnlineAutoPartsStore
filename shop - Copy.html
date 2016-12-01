@@ -1,8 +1,6 @@
 <?php
 	// check if the user is logged in. If not, DON'T redirect to login page
 	session_start();
-	$rowsPerPage = 2;
-
 
 	if(isset($_SESSION['user_ID']) && isset($_SESSION['username'])){
 		$username = $_SESSION['username'];
@@ -39,50 +37,32 @@
 		$currentPageTemp = (int) $_GET["pageNumber"];
 
 
-
-
-		$_SESSION["query_result"] = $con->query($sql);
-
-
-		while ($_SESSION["rows"] = ($_SESSION["query_result"]->fetch_object()))
+		if ($currentPageTemp == 1)
 		{
-			$array[] = $_SESSION["rows"];
+		$_SESSION["query_result"] = $con->query($sql);
 		}
 
 		//Pagination
+		$rowsPerPage = 1;
 
 	}
-
+	
 	// Categories functionality. Get the category from the url if any. If not any, don't do anything
 	if(!empty($_GET['category'])){
 		$category = $_GET['category'];
 
 		// connect to database
 		include 'database-connect.php';
-
+		
 		// Query to get all items with matching category.
 		$sql = "SELECT *
 					FROM Item i
 					WHERE i.category = '$category'";
 		$_SESSION["sql"] = $sql; // <---Named like this temporarily for testing
-
+		
 		//$result = $con->query($sql);
 		$_SESSION["query_result"] = $con->query($sql); // <---Named like this temporarily for testing
 	}
-
-		if(empty($_GET['category']) && empty($_GET["keywords"]))
-		{
-
-			include 'database-connect.php';
-
-			$sql = "SELECT * from item";
-			$_SESSION["sql"] = $sql;
-			$_SESSION["query_result"] = $con->query($sql);
-			while ($_SESSION["rows"] = ($_SESSION["query_result"]->fetch_object()))
-			{
-				$array[] = $_SESSION["rows"];
-			}
-		}
 
 	/*TODO When coming to products page, it must show featured products somehow*/
 
@@ -109,7 +89,7 @@
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
-    <![endif]-->
+    <![endif]-->       
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
@@ -159,7 +139,7 @@
 				</div>
 			</div>
 		</div><!--/header-middle-->
-
+	
 		<div class="header-bottom"><!--header-bottom-->
 			<div class="container">
 				<div class="row">
@@ -175,7 +155,7 @@
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="index.html">Home</a></li>
-								<li><a href="shop.html?keywords=&pageNumber=1" class="active">Shop</a></li>
+								<li><a href="shop.html" class="active">Shop</a></li>
 								<li><a href="contact-us.html">Contact</a></li>
 							</ul>
 						</div>
@@ -192,13 +172,13 @@
 				</div>
 			</div>
 	</header>
-
+	
 	<section id="advertisement">
 		<div class="container">
 			<img src="images/shop/advertisement.jpg" alt="" />
 		</div>
 	</section>
-
+	
 	<section>
 		<div class="container">
 			<div class="row">
@@ -214,25 +194,22 @@
 						<!--TODO For each result from search or category, put in the page up to 20 results-->
 
 					<!--	--><?php
-					$loopCounter = 0;
-					$populatePage = (int) $_GET["pageNumber"];
-					$populatePage = ($populatePage -1) * $rowsPerPage;
-						while ($loopCounter < $rowsPerPage && !empty($array[$populatePage]))
-						{
+						$_SESSION["counter"] = 1;
 
-							 ?>
+						while ($_SESSION["rows"] = ($_SESSION["query_result"]->fetch_object()))
+						{	?>
 							<div class="col-sm-4">
 								<div class="product-image-wrapper">
 									<div class="single-products">
 										<div class="productinfo text-center">
-											<a href="product-details.html?item_ID=<?php echo $array[$populatePage]->item_ID ?>">
-												<img src=<?php  ; echo '"images/product-details/'.$array[$populatePage]->item_ID.'-1.jpg"' ?> alt="<?php $array[$populatePage]->item_name ?>" />
+											<a href="product-details.html?item_ID=<?php echo $_SESSION["rows"]->item_ID ?>">
+												<img src=<?php  ; echo '"images/product-details/'.$_SESSION["rows"]->item_ID.'-1.jpg"' ?> alt="<?php $_SESSION["rows"]->item_name ?>" />
 											</a>
-											<a href="product-details.html?item_ID=<?php echo $array[$populatePage]->item_ID ?>">
-												<h2><?php $temp = $array[$populatePage]->price;  echo "$$temp";?></h2>
+											<a href="product-details.html?item_ID=<?php echo $_SESSION["rows"]->item_ID ?>">
+												<h2><?php $temp = $_SESSION["rows"]->price;  echo "$$temp";?></h2>
 											</a>
-											<a href="product-details.html?item_ID=<?php echo $array[$populatePage]->item_ID ?>">
-												<p><?php $temp = $array[$populatePage]->item_name; echo "$temp";?></p>
+											<a href="product-details.html?item_ID=<?php echo $_SESSION["rows"]->item_ID ?>">
+												<p><?php $temp = $_SESSION["rows"]->item_name; echo "$temp";?></p>
 											</a>
 										</div>
 										<!--<div class="product-overlay">
@@ -247,10 +224,12 @@
 							</div>
 
 					<!--	--><?php
-						$loopCounter = $loopCounter + 1;
-						$populatePage = $populatePage + 1;
-						}
-						?>
+							$_SESSION["counter"] = $_SESSION["counter"] +1 ;
+							if ($_SESSION["counter"] == $rowPerPage)
+							{
+								break;
+							}
+						}?>
 
 
 					</div><!--features_items-->
