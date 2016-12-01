@@ -165,12 +165,6 @@
 			</div>
 	</header>
 	
-	<section id="advertisement">
-		<div class="container">
-			<img src="images/shop/advertisement.jpg" alt="" />
-		</div>
-	</section>
-	
 	<section>
 		<div class="container">
 			<div class="row">
@@ -195,7 +189,7 @@
 									<div class="single-products">
 										<div class="productinfo text-center">
 											<a href="product-details.html?item_ID=<?php echo $_SESSION["rows"]->item_ID ?>">
-												<img src=<?php  ; echo '"images/product-details/similar'.$_SESSION["rows"]->item_ID.'-1.jpg"' ?> alt="<?php $_SESSION["rows"]->item_name ?>" />
+												<img src=<?php  ; echo '"images/product-details/'.$_SESSION["rows"]->item_ID.'.jpg"' ?> alt="<?php $_SESSION["rows"]->item_name ?>" />
 											</a>
 											<a href="product-details.html?item_ID=<?php echo $_SESSION["rows"]->item_ID ?>">
 												<h2><?php $temp = $_SESSION["rows"]->price;  echo "$$temp";?></h2>
