@@ -45,7 +45,7 @@ $_SESSION["query_result"] = $link->query($getCart);
                 </td>
                 <td class="cart_price">
                     <h2><?php $price = $_SESSION["rows"]->price;
-                        $totalPrice = $totalPrice + $price;
+                        $totalPrice = $totalPrice + $price * $_SESSION["rows"]->quantity;
                         echo "$$price"; ?></h2>
                 </td>
                 <td class="cart_quantity">
