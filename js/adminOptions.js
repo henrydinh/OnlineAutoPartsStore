@@ -59,6 +59,29 @@ $(document).ready(function() {
         return false;
     }
 
+	
+	
+	// call submitForm function for the submitHandler
+    $('#deleteItemForm').validate({
+        submitHandler: deleteItemForm
+    });
+
+    function deleteItemForm(){
+        // serialize the form
+        var data = $('#deleteItemForm').serialize();
+        // use AJAX to verify login details with database
+        $.ajax({
+            type: 'POST',
+            url: 'adminOptions/delete.php',
+            data: data,
+            success: function(result){
+                console.log(result);
+                $('#delete_alert_box').text(result);
+                $('#delete_alert_box').hide().fadeIn('fast').delay(5000).fadeOut('fast');
+            }
+        });
+        return false;
+    }
 
 
 
