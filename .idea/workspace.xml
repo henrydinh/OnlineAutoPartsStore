@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="491012ca-3539-4440-b63d-bf7a3fc3d385" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addToCart.php" afterPath="$PROJECT_DIR$/addToCart.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adminOptions/add.php" afterPath="$PROJECT_DIR$/adminOptions/add.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cart.html" afterPath="$PROJECT_DIR$/cart.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/checkout.html" afterPath="$PROJECT_DIR$/checkout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/updateCart.js" afterPath="$PROJECT_DIR$/js/updateCart.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/checkout.php" afterPath="$PROJECT_DIR$/checkout.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product-details.html" afterPath="$PROJECT_DIR$/product-details.html" />
     </list>
     <ignored path="htdocs.iws" />
@@ -29,14 +24,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="checkout.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/checkout.js">
+      <file leaf-file-name="my-account.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/my-account.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
-              <caret line="36" column="48" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
-              <folding>
-                <element signature="e#0#42#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="-135">
+              <caret line="254" column="35" selection-start-line="254" selection-start-column="29" selection-end-line="254" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -44,7 +37,7 @@
       <file leaf-file-name="cart.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cart.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1846">
+            <state relative-caret-position="1808">
               <caret line="257" column="39" selection-start-line="257" selection-start-column="36" selection-end-line="257" selection-end-column="39" />
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -54,24 +47,48 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product-details.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/product-details.html">
+      <file leaf-file-name="shop.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="194" column="52" selection-start-line="194" selection-start-column="52" selection-end-line="194" selection-end-column="67" />
+              <caret line="26" column="22" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="order-summary.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/order-summary.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="901">
+              <caret line="222" column="116" selection-start-line="222" selection-start-column="105" selection-end-line="222" selection-end-column="116" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="product-details.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/product-details.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="196" column="44" selection-start-line="196" selection-start-column="44" selection-end-line="196" selection-end-column="55" />
               <folding>
                 <element signature="n#style#0;n#input#1;n#form#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#2;n#form#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="updateCart.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/updateCart.js">
+      <file leaf-file-name="add.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/adminOptions/add.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="575">
+              <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="73" selection-end-column="1" />
+              <folding>
+                <marker date="1480192963532" expanded="true" signature="337:352" ph="{...}" />
+                <marker date="1480192963532" expanded="true" signature="1302:1533" ph="INSERT INTO `onlineautopartsstore`.`item`... " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -79,7 +96,7 @@
       <file leaf-file-name="addToCart.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/addToCart.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
+            <state relative-caret-position="-125">
               <caret line="26" column="50" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="50" />
               <folding>
                 <marker date="1480210556147" expanded="true" signature="593:647" ph="INSERT INTO cart... " />
@@ -88,22 +105,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="checkout.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="checkout.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/checkout.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+            <state relative-caret-position="122">
+              <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
               <folding>
-                <marker date="1480210992532" expanded="true" signature="1167:1350" ph="INSERT INTO `onlineautopartsstore`.`transaction`... " />
-                <marker date="1480210992532" expanded="true" signature="1503:1677" ph="SELECT trans... transaction" />
-                <marker date="1480210992532" expanded="true" signature="1907:1943" ph="SELECT * FRO... cart" />
-                <marker date="1480210992532" expanded="true" signature="1907:1944" ph="SELECT * FRO... cart" />
-                <marker date="1480210992532" expanded="true" signature="2381:2419" ph="INSERT INTO transaction_items... " />
-                <marker date="1480210992532" expanded="true" signature="2381:2472" ph="INSERT INTO transaction_items... " />
-                <marker date="1480210992532" expanded="true" signature="2551:2580" ph="INSERT INTO user_transactions... " />
-                <marker date="1480210992532" expanded="true" signature="2551:2614" ph="INSERT INTO user_transactions... " />
-                <marker date="1480210992532" expanded="true" signature="2551:2678" ph="INSERT INTO user_transactions... " />
-                <marker date="1480210992532" expanded="true" signature="2680:2723" ph="DELETE FROM " />
+                <marker date="1480558257494" expanded="true" signature="1211:1391" ph="INSERT INTO `onlineautopartsstore`.`transaction`... " />
+                <marker date="1480558257494" expanded="true" signature="1544:1715" ph="SELECT trans... transaction" />
+                <marker date="1480558257494" expanded="true" signature="1945:1981" ph="SELECT * FRO... cart" />
+                <marker date="1480558257494" expanded="true" signature="1945:1982" ph="SELECT * FRO... cart" />
+                <marker date="1480558257494" expanded="true" signature="2419:2457" ph="INSERT INTO transaction_items... " />
+                <marker date="1480558257494" expanded="true" signature="2419:2510" ph="INSERT INTO transaction_items... " />
+                <marker date="1480558257494" expanded="true" signature="2589:2618" ph="INSERT INTO user_transactions... " />
+                <marker date="1480558257494" expanded="true" signature="2589:2652" ph="INSERT INTO user_transactions... " />
+                <marker date="1480558257494" expanded="true" signature="2589:2717" ph="INSERT INTO user_transactions... " />
+                <marker date="1480558257494" expanded="true" signature="2719:2762" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
@@ -112,7 +129,7 @@
       <file leaf-file-name="listAll.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/adminOptions/listAll.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="725">
+            <state relative-caret-position="1025">
               <caret line="43" column="17" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
               <folding />
             </state>
@@ -125,33 +142,6 @@
             <state relative-caret-position="475">
               <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/adminOptions/admin.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1217">
-              <caret line="197" column="38" selection-start-line="197" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
-              <folding>
-                <element signature="n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/adminOptions/add.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="73" selection-end-column="1" />
-              <folding>
-                <marker date="1480192963532" expanded="true" signature="337:352" ph="{...}" />
-                <marker date="1480192963532" expanded="true" signature="1302:1533" ph="INSERT INTO `onlineautopartsstore`.`item`... " />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -203,10 +193,10 @@
         <option value="$PROJECT_DIR$/adminOptions/add.php" />
         <option value="$PROJECT_DIR$/cart.html" />
         <option value="$PROJECT_DIR$/js/checkout.js" />
-        <option value="$PROJECT_DIR$/product-details.html" />
         <option value="$PROJECT_DIR$/addToCart.php" />
-        <option value="$PROJECT_DIR$/checkout.php" />
         <option value="$PROJECT_DIR$/js/updateCart.js" />
+        <option value="$PROJECT_DIR$/product-details.html" />
+        <option value="$PROJECT_DIR$/checkout.php" />
       </list>
     </option>
   </component>
@@ -258,52 +248,7 @@
       <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OnlineAutoPartsStore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OnlineAutoPartsStore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OnlineAutoPartsStore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OnlineAutoPartsStore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OnlineAutoPartsStore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OnlineAutoPartsStore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OnlineAutoPartsStore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adminOptions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
       </pane>
       <pane id="Scope" />
     </panes>
@@ -868,12 +813,12 @@
       <workItem from="1479135943159" duration="4517000" />
       <workItem from="1479261604510" duration="710000" />
       <workItem from="1479262526332" duration="4146000" />
-      <workItem from="1479931762616" duration="28627000" />
+      <workItem from="1479931762616" duration="34428000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94485000" />
+    <option name="totallyTimeSpent" value="100286000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -885,7 +830,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="7" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -900,7 +845,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18972974" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18972974" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Graph Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -974,7 +919,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Google Drive/Web Programing Languages/VXP130430-PW3/login.php" />
     <entry file="file://$USER_HOME$/Google Drive/Web Programing Languages/VXP130430-PW3/login.html" />
     <entry file="file://$USER_HOME$/Google Drive/Web Programing Languages/VXP130430-PW4/login.html" />
     <entry file="file://$USER_HOME$/Google Drive/Web Programing Languages/VXP130430-PW4/login.php" />
@@ -1091,14 +1035,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="207" column="0" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1149,14 +1085,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-account.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="26" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/adminOptions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
@@ -1179,79 +1107,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adminOptions/add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="73" selection-end-column="1" />
-          <folding>
-            <marker date="1480192963532" expanded="true" signature="337:352" ph="{...}" />
-            <marker date="1480192963532" expanded="true" signature="1302:1533" ph="INSERT INTO `onlineautopartsstore`.`item`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/checkout.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="625">
           <caret line="36" column="48" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/check-logged-in.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adminOptions/listAll.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="43" column="17" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addToCart.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="26" column="50" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="50" />
-          <folding>
-            <marker date="1480210556147" expanded="true" signature="593:647" ph="INSERT INTO cart... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cart.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1846">
-          <caret line="257" column="39" selection-start-line="257" selection-start-column="36" selection-end-line="257" selection-end-column="39" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/checkout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
-          <folding>
-            <marker date="1480210992532" expanded="true" signature="1167:1350" ph="INSERT INTO `onlineautopartsstore`.`transaction`... " />
-            <marker date="1480210992532" expanded="true" signature="1503:1677" ph="SELECT trans... transaction" />
-            <marker date="1480210992532" expanded="true" signature="1907:1943" ph="SELECT * FRO... cart" />
-            <marker date="1480210992532" expanded="true" signature="1907:1944" ph="SELECT * FRO... cart" />
-            <marker date="1480210992532" expanded="true" signature="2381:2419" ph="INSERT INTO transaction_items... " />
-            <marker date="1480210992532" expanded="true" signature="2381:2472" ph="INSERT INTO transaction_items... " />
-            <marker date="1480210992532" expanded="true" signature="2551:2580" ph="INSERT INTO user_transactions... " />
-            <marker date="1480210992532" expanded="true" signature="2551:2614" ph="INSERT INTO user_transactions... " />
-            <marker date="1480210992532" expanded="true" signature="2551:2678" ph="INSERT INTO user_transactions... " />
-            <marker date="1480210992532" expanded="true" signature="2680:2723" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -1264,12 +1125,104 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/check-logged-in.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/product-details.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="194" column="52" selection-start-line="194" selection-start-column="52" selection-end-line="194" selection-end-column="67" />
+        <state relative-caret-position="165">
+          <caret line="196" column="44" selection-start-line="196" selection-start-column="44" selection-end-line="196" selection-end-column="55" />
           <folding>
             <element signature="n#style#0;n#input#1;n#form#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#2;n#form#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1808">
+          <caret line="257" column="39" selection-start-line="257" selection-start-column="36" selection-end-line="257" selection-end-column="39" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="26" column="22" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/order-summary.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="222" column="116" selection-start-line="222" selection-start-column="105" selection-end-line="222" selection-end-column="116" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adminOptions/add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="73" selection-end-column="1" />
+          <folding>
+            <marker date="1480192963532" expanded="true" signature="337:352" ph="{...}" />
+            <marker date="1480192963532" expanded="true" signature="1302:1533" ph="INSERT INTO `onlineautopartsstore`.`item`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adminOptions/listAll.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1025">
+          <caret line="43" column="17" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addToCart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-125">
+          <caret line="26" column="50" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="50" />
+          <folding>
+            <marker date="1480210556147" expanded="true" signature="593:647" ph="INSERT INTO cart... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-account.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135">
+          <caret line="254" column="35" selection-start-line="254" selection-start-column="29" selection-end-line="254" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/checkout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+          <folding>
+            <marker date="1480558257494" expanded="true" signature="1211:1391" ph="INSERT INTO `onlineautopartsstore`.`transaction`... " />
+            <marker date="1480558257494" expanded="true" signature="1544:1715" ph="SELECT trans... transaction" />
+            <marker date="1480558257494" expanded="true" signature="1945:1981" ph="SELECT * FRO... cart" />
+            <marker date="1480558257494" expanded="true" signature="1945:1982" ph="SELECT * FRO... cart" />
+            <marker date="1480558257494" expanded="true" signature="2419:2457" ph="INSERT INTO transaction_items... " />
+            <marker date="1480558257494" expanded="true" signature="2419:2510" ph="INSERT INTO transaction_items... " />
+            <marker date="1480558257494" expanded="true" signature="2589:2618" ph="INSERT INTO user_transactions... " />
+            <marker date="1480558257494" expanded="true" signature="2589:2652" ph="INSERT INTO user_transactions... " />
+            <marker date="1480558257494" expanded="true" signature="2589:2717" ph="INSERT INTO user_transactions... " />
+            <marker date="1480558257494" expanded="true" signature="2719:2762" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>

@@ -15,7 +15,7 @@ if ($link->connect_errno)
 
 $ID = $_SESSION['user_ID'];
 
-$price=$address=$city=$state=$fname=$lname="";
+$price=$address=$city=$state=$fname=$lname=$date="";
 
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
@@ -56,11 +56,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 }
 
-
+$today = date('l jS \of F Y h:i:s A');
 
 
 $sql= "INSERT INTO `onlineautopartsstore`.`transaction` (`date`, 
-                    `total_price`, `address`, `city`, `state`) VALUES ('test date', '$price', '$address', '$city', '$state');";
+                    `total_price`, `address`, `city`, `state`) VALUES ('$today', '$price', '$address', '$city', '$state');";
 
 if ($stmt = $link->query($sql))
 {
@@ -73,7 +73,7 @@ if ($stmt = $link->query($sql))
 
 //Get the transaction_id generated for this transaction
 $getTransactionID = "SELECT transaction_ID FROM `transaction` WHERE date = 
-                    'test date' AND total_price = $price AND address = '$address' AND city ='$city' AND state ='$state'";
+                    '$today' AND total_price = $price AND address = '$address' AND city ='$city' AND state ='$state'";
 
 
 
@@ -111,6 +111,7 @@ while ($allItems = $items->fetch_object())
 
 $user_transactions_sql = "INSERT INTO user_transactions VALUES ($user_ID, $transactionID) ";
 $link->query($user_transactions_sql);
+
 
 
 $deleteFromCartSQL = "DELETE FROM cart WHERE user_ID = '$user_ID' ";
