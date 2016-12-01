@@ -27,6 +27,7 @@ $items = $con->query($sql);
                 <th>Number Available</th>
                 <th>Category</th>
                 <th>Page Link</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -57,6 +58,12 @@ while ($allItems = $items->fetch_object())
 
             <td>
                 <a href="product-details.html?item_ID=<?php echo $allItems->item_ID ?>">Page</a>
+            </td>
+
+            <td>
+                <form class="col-md-12" id="deleteFromList"  name="deleteFromList" action="adminOptions/deleteFromList.php" method="POST">
+                    <button class="btn" id="item_id" name="item_id"  class="form-control" value="<?php echo $allItems->item_ID ?>">Delete </button>
+                </form>
             </td>
 
 
