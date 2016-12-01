@@ -1,7 +1,9 @@
 <?php
 	// define variables to be used
 	$firstName=$lastName=$emailAddress=$password="";
-
+	// also only storing the hashed version of the password
+	$hashed_password = "";
+	
 	// check if the request is POST
 	if(isset($_POST['register_submit'])){
 		$firstName = clean_input($_POST["firstName"]);
@@ -10,6 +12,9 @@
 		$password = clean_input($_POST["password"]);
 		
 		if(validateUsername($username) || validatePassword($password)){
+			// hash the password
+			$hashed_password = password_hash($password, PASSWORD_BCRYPT);
+			
 			// connect to database
 			include 'database-connect.php';
 			
@@ -21,7 +26,7 @@
 				echo 'Email already exists. Please enter another email.';
 			}else{
 				// insert new user into database if everything is fine
-				$insertQuery = "INSERT INTO user (first_name, last_name, email, hashed_password, is_admin) VALUES ('$firstName','$lastName', '$emailAddress', '$password', 0)";
+				$insertQuery = "INSERT INTO user (first_name, last_name, email, hashed_password, is_admin) VALUES ('$firstName','$lastName', '$emailAddress', '$hashed_password', 0)";
 				if ($con->query($insertQuery) === TRUE) {
 					// insert successful. don't echo anything
 				} else {
@@ -30,7 +35,7 @@
 				
 				// Start a session with the new user and store new session variables
 				session_start();
-				$sql = "SELECT * FROM User WHERE email='$emailAddress' AND hashed_password='$password' LIMIT 1";
+				$sql = "SELECT * FROM User WHERE email='$emailAddress' AND hashed_password='$hashed_password' LIMIT 1";
 				$result = $con->query($sql);
 				
 				if($result->num_rows > 0){
