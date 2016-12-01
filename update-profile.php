@@ -25,6 +25,9 @@
 			if(!empty($password)){
 				// check to make sure both username (email) and password are valid
 				if(validateUsername($username) && validatePassword($password)){
+					// hash the password
+					$hashed_password = password_hash($password, PASSWORD_BCRYPT);
+					
 					// Connect to database
 					$con = mysqli_connect('localhost', 'root', 'root', 'onlineautopartsstore');
 					if(!$con){
@@ -33,7 +36,7 @@
 					
 					// SQL statement to update row in DB
 					$sql = "UPDATE User
-							SET `first_name`='$first_name',`last_name`='$last_name',`email`='$username',`hashed_password`='$password',`phone_number`='$phone'
+							SET `first_name`='$first_name',`last_name`='$last_name',`email`='$username',`hashed_password`='$hashed_password',`phone_number`='$phone'
 							WHERE `user_ID`=$user_ID";
 					$result = $con->query($sql);
 					

@@ -13,39 +13,44 @@
 				die('Could not connect: '.mysqli_error($con));
 			}
 			
-			// check if username and password exist in database
-			$sql = "SELECT * FROM User WHERE email='$username' AND hashed_password='$password' LIMIT 1";
+			// get the hashed password from the database and verify with inputted password
+			$sql = "SELECT * FROM User WHERE email='$username' LIMIT 1";
 			$result = $con->query($sql);
-			
 			if($result->num_rows > 0){
 				// fetch user object from result
 				$user_obj = $result->fetch_object();
+				$db_password = $user_obj->hashed_password;
 				
-				// Get user_ID, first_name, last_name, phone, address, and email to store in session
-				$user_ID = $user_obj->user_ID;
-				$first_name = $user_obj->first_name;
-				$last_name = $user_obj->last_name;
-				$phone = $user_obj->phone_number;
-				$street_address = $user_obj->street_address;
-				$city = $user_obj->city;
-				$state = $user_obj->state;
-				$zip = $user_obj->zip;
-                $isAdmin = $user_obj->is_admin;
-				
-				// Start a session
-				session_start();
-				$_SESSION["username"] = $username;
-				$_SESSION["user_ID"] = $user_ID;
-				$_SESSION["first_name"] = $first_name;
-				$_SESSION["last_name"] = $last_name;
-				$_SESSION["phone"] = $phone;
-				$_SESSION["street_address"] = $street_address;
-				$_SESSION["city"] = $city;
-				$_SESSION["state"] = $state;
-				$_SESSION["zip"] = $zip;
-                $_SESSION["isAdmin"] = $isAdmin;
+				// verify that passwords match
+				if(password_verify($password, $db_password)){
+					// Get user_ID, first_name, last_name, phone, address, and email to store in session
+					$user_ID = $user_obj->user_ID;
+					$first_name = $user_obj->first_name;
+					$last_name = $user_obj->last_name;
+					$phone = $user_obj->phone_number;
+					$street_address = $user_obj->street_address;
+					$city = $user_obj->city;
+					$state = $user_obj->state;
+					$zip = $user_obj->zip;
+					$isAdmin = $user_obj->is_admin;
+					
+					// Start a session
+					session_start();
+					$_SESSION["username"] = $username;
+					$_SESSION["user_ID"] = $user_ID;
+					$_SESSION["first_name"] = $first_name;
+					$_SESSION["last_name"] = $last_name;
+					$_SESSION["phone"] = $phone;
+					$_SESSION["street_address"] = $street_address;
+					$_SESSION["city"] = $city;
+					$_SESSION["state"] = $state;
+					$_SESSION["zip"] = $zip;
+					$_SESSION["isAdmin"] = $isAdmin;
 
-				echo 'ok';
+					echo 'ok';
+				}else{
+					echo 'The username and password you entered did not match our records. Please try again.';
+				}
 			}else{
 				echo 'The username and password you entered did not match our records. Please try again.';
 			}
