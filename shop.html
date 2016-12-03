@@ -223,10 +223,15 @@
 						<!--TODO For each result from search or category, put in the page up to 20 results-->
 
 						<?php
+							$divRowCounter = 0;
 							$loopCounter = 0;
 							$populatePage = (int) $_GET["pageNumber"];
 							$populatePage = ($populatePage -1) * $rowsPerPage;
 							while ($loopCounter < $rowsPerPage && !empty($array[$populatePage])){
+								if($loopCounter % 3 == 0){
+									echo '<div class="row">';
+									$divRowCounter = $loopCounter + 2;
+								}
 								echo '<div class="col-sm-4">';
 								echo '<div class="product-image-wrapper">';
 								echo '<div class="single-products">';
@@ -248,6 +253,9 @@
 								echo '</div>';
 								echo '</div>';
 								echo '</div>';
+								if($loopCounter == $divRowCounter){
+									echo '</div>';
+								}
 							
 								$loopCounter = $loopCounter + 1;
 								$populatePage = $populatePage + 1;
