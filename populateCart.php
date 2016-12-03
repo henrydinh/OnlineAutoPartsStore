@@ -35,7 +35,7 @@ $_SESSION["query_result"] = $link->query($getCart);
             <tr>
                 <td class="cart_product">
                     <img src=<?php ;
-                    echo '"images/product-details/similar' . $_SESSION["rows"]->item_ID . '-1.jpg"' ?> alt="<?php $_SESSION["rows"]->item_name ?>"/>
+                    echo '"images/product-details/' . $_SESSION["rows"]->item_ID . '.jpg"' ?> alt="<?php $_SESSION["rows"]->item_name ?>"/>
                 </td>
                 <td class="cart_description">
                     <h4><a href="">
