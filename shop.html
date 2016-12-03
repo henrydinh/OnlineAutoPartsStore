@@ -1,7 +1,7 @@
 <?php
 	// check if the user is logged in. If not, DON'T redirect to login page
 	session_start();
-	$rowsPerPage = 2;
+	$rowsPerPage = 6; // this is actually items per page
 	
 	if(isset($_SESSION['user_ID']) && isset($_SESSION['username'])){
 		$username = $_SESSION['username'];
@@ -35,8 +35,11 @@
 
 		//$result = $con->query($sql);
 
-		$currentPageTemp = (int) $_GET["pageNumber"];
-
+		if(isset($_GET["pageNumber"])){
+			$currentPageTemp = (int) $_GET["pageNumber"];
+		}else{
+			$currentPageTemp = 1;
+		}
 
 
 
@@ -64,24 +67,37 @@
 					FROM Item i
 					WHERE i.category = '$category'";
 		$_SESSION["sql"] = $sql; // <---Named like this temporarily for testing
+		
+		if(isset($_GET["pageNumber"])){
+			$currentPageTemp = (int) $_GET["pageNumber"];
+		}else{
+			$currentPageTemp = 1;
+		}
 
 		//$result = $con->query($sql);
 		$_SESSION["query_result"] = $con->query($sql); // <---Named like this temporarily for testing
+		
+		
+		while ($_SESSION["rows"] = ($_SESSION["query_result"]->fetch_object()))
+		{
+			$array[] = $_SESSION["rows"];
+		}
 	}
 
-		if(empty($_GET['category']) && empty($_GET["keywords"]))
+	// default shop if category and search not provided
+	if(empty($_GET['category']) && empty($_GET["keywords"]))
+	{
+
+		include 'database-connect.php';
+
+		$sql = "SELECT * from item";
+		$_SESSION["sql"] = $sql;
+		$_SESSION["query_result"] = $con->query($sql);
+		while ($_SESSION["rows"] = ($_SESSION["query_result"]->fetch_object()))
 		{
-
-			include 'database-connect.php';
-
-			$sql = "SELECT * from item";
-			$_SESSION["sql"] = $sql;
-			$_SESSION["query_result"] = $con->query($sql);
-			while ($_SESSION["rows"] = ($_SESSION["query_result"]->fetch_object()))
-			{
-				$array[] = $_SESSION["rows"];
-			}
+			$array[] = $_SESSION["rows"];
 		}
+	}
 
 	/*TODO When coming to products page, it must show featured products somehow*/
 
@@ -174,7 +190,7 @@
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="index.html">Home</a></li>
-								<li><a href="shop.html?keywords=&pageNumber=1" class="active">Shop</a></li>
+								<li><a href="shop.html?keywords=&category=&pageNumber=1" class="active">Shop</a></li>
 								<li><a href="contact-us.html">Contact</a></li>
 							</ul>
 						</div>
@@ -202,136 +218,125 @@
 					</div>
 				</div>
 				<div class="col-sm-9 padding-right">
-					<div class="features_items"><!--features_items-->
+					<div class="features_items"><!--items-->
 						<h2 class="title text-center">Items</h2>
 						<!--TODO For each result from search or category, put in the page up to 20 results-->
 
-					<!--	--><?php
-					$loopCounter = 0;
-					$populatePage = (int) $_GET["pageNumber"];
-					$populatePage = ($populatePage -1) * $rowsPerPage;
-						while ($loopCounter < $rowsPerPage && !empty($array[$populatePage]))
-						{
-
-							 ?>
-							<div class="col-sm-4">
-								<div class="product-image-wrapper">
-									<div class="single-products">
-										<div class="productinfo text-center">
-<<<<<<< HEAD
-											<a href="product-details.html?item_ID=<?php echo $_SESSION["rows"]->item_ID ?>">
-												<img src=<?php  ; echo '"images/product-details/'.$_SESSION["rows"]->item_ID.'.jpg"' ?> alt="<?php $_SESSION["rows"]->item_name ?>" />
-=======
-											<a href="product-details.html?item_ID=<?php echo $array[$populatePage]->item_ID ?>">
-												<img src=<?php  ; echo '"images/product-details/'.$array[$populatePage]->item_ID.'-1.jpg"' ?> alt="<?php $array[$populatePage]->item_name ?>" />
->>>>>>> Vivek
-											</a>
-											<a href="product-details.html?item_ID=<?php echo $array[$populatePage]->item_ID ?>">
-												<h2><?php $temp = $array[$populatePage]->price;  echo "$$temp";?></h2>
-											</a>
-											<a href="product-details.html?item_ID=<?php echo $array[$populatePage]->item_ID ?>">
-												<p><?php $temp = $array[$populatePage]->item_name; echo "$temp";?></p>
-											</a>
-										</div>
-										<!--<div class="product-overlay">
-											<div class="overlay-content">
-												<h2><?php /*$temp = $_SESSION["rows"]->price;  echo "$temp";*/?></h2>
-												<p><?php /*$temp = $_SESSION["rows"]->item_name; echo "$temp";*/?></p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-										</div>-->
-									</div>
-								</div>
-							</div>
-
-					<!--	--><?php
-						$loopCounter = $loopCounter + 1;
-						$populatePage = $populatePage + 1;
-						}
-						?>
-
-
-					</div><!--features_items-->
-					<ul class="pagination">
 						<?php
-
-						$numRows = $_SESSION["query_result"]->num_rows;
-
-						if ($numRows >=1)
-						{
-
-							$totalPages = ceil($numRows / $rowsPerPage );
-
-
-							if(isset($_GET["pageNumber"]))
-							{
-								$currentPage = (int) $_GET["pageNumber"];
-
+							$loopCounter = 0;
+							$populatePage = (int) $_GET["pageNumber"];
+							$populatePage = ($populatePage -1) * $rowsPerPage;
+							while ($loopCounter < $rowsPerPage && !empty($array[$populatePage])){
+								echo '<div class="col-sm-4">';
+								echo '<div class="product-image-wrapper">';
+								echo '<div class="single-products">';
+								echo '<div class="productinfo text-center">';
+								
+								echo '<a href="product-details.html?item_ID='.$array[$populatePage]->item_ID.'">';
+								echo '<img src="images/product-details/'.$array[$populatePage]->item_ID.'.jpg" alt="'.$array[$populatePage]->item_name.'"/>';
+								echo '</a>';
+								
+								echo '<a href="product-details.html?item_ID='.$array[$populatePage]->item_ID.'">';
+								echo '<h2>$'.$array[$populatePage]->price.'</h2>';
+								echo '</a>';
+								
+								echo '<a href="product-details.html?item_ID='.$array[$populatePage]->item_ID.'">';
+								echo '<p>'.$array[$populatePage]->item_name.'</p>';
+								echo '</a>';
+								
+								echo '</div>';
+								echo '</div>';
+								echo '</div>';
+								echo '</div>';
+							
+								$loopCounter = $loopCounter + 1;
+								$populatePage = $populatePage + 1;
 							}
+						?>
+					</div><!--items-->
+					<br>
+					<div>
+						<ul class="pagination">
+							<?php
 
-							else
+							$numRows = $_SESSION["query_result"]->num_rows;
+
+							if ($numRows >=1)
 							{
-								$currentPage = 1;
 
-							}
-
-							if ($currentPage > $totalPages)
-							{
-								$currentPage= $totalPages;
-							}
-
-							if ($currentPage < 1)
-							{
-								$currentPage = 1;
-							}
-
-							$offset = ($currentPage - 1) * $rowsPerPage;
+								$totalPages = ceil($numRows / $rowsPerPage );
 
 
-							if ($currentPage >1)
-							{
-								echo "<li><a href='{$_SERVER['PHP_SELF']}?keywords=$keywords&pageNumber=1'><<</a></li>";
-								$prevPage = $currentPage - 1;
-								echo "<li><a href='{$_SERVER['PHP_SELF']}?keywords=$keywords&pageNumber=$prevPage'><</a></li>";
+								if(isset($_GET["pageNumber"]))
+								{
+									$currentPage = (int) $_GET["pageNumber"];
+
+								}
+
+								else
+								{
+									$currentPage = 1;
+
+								}
+
+								if ($currentPage > $totalPages)
+								{
+									$currentPage= $totalPages;
+								}
+
+								if ($currentPage < 1)
+								{
+									$currentPage = 1;
+								}
+
+								$offset = ($currentPage - 1) * $rowsPerPage;
 
 
-							}
-
-							$range = 3;
-
-							// loop to show links to range of pages around current page
-							for ($x = ($currentPage - $range); $x < (($currentPage + $range)  + 1); $x++) {
-								// if it's a valid page number...
-								if (($x > 0) && ($x <= $totalPages)) {
-									// if we're on current page...
-
-									// 'highlight' it but don't make a link
-									echo "<li><a href='{$_SERVER['PHP_SELF']}?keywords=$keywords&pageNumber=$x'>$x</a></li>";
+								if ($currentPage >1)
+								{
+									echo "<li><a href='{$_SERVER['PHP_SELF']}?keywords=$keywords&pageNumber=1'>&lt&lt</a></li>";
+									$prevPage = $currentPage - 1;
+									echo "<li><a href='{$_SERVER['PHP_SELF']}?keywords=$keywords&pageNumber=$prevPage'>&lt</a></li>";
 
 
 								}
+
+								$range = 3;
+
+								// loop to show links to range of pages around current page
+								for ($x = ($currentPage - $range); $x < (($currentPage + $range)  + 1); $x++) {
+									// if it's a valid page number...
+									if (($x > 0) && ($x <= $totalPages)) {
+										// if we're on current page...
+
+										// 'highlight' it but don't make a link
+										echo "<li><a href='{$_SERVER['PHP_SELF']}?keywords=$keywords&pageNumber=$x'>$x</a></li>";
+
+
+									}
+								}
+
+
+
+								if ($currentPage != $totalPages) {
+									// get next page
+									$nextPage = $currentPage + 1;
+									// echo forward link for next page
+									echo "<li><a href='{$_SERVER['PHP_SELF']}?keywords=$keywords&pageNumber=$nextPage'>&gt</a></li>";
+									// echo forward link for lastpage
+									echo "<li><a href='{$_SERVER['PHP_SELF']}?keywords=$keywords&pageNumber=$totalPages'>&gt&gt</a></li>";
+								} // end if
 							}
 
 
 
-							if ($currentPage != $totalPages) {
-								// get next page
-								$nextPage = $currentPage + 1;
-								// echo forward link for next page
-								echo "<li>><a href='{$_SERVER['PHP_SELF']}?keywords=$keywords&pageNumber=$nextPage'>></a></li>";
-								// echo forward link for lastpage
-								echo "<li><a href='{$_SERVER['PHP_SELF']}?keywords=$keywords&pageNumber=$totalPages'>>></a></li>";
-							} // end if
-						}
-
-
-
-						?>
-						<!--<li class="active"><a href="">1</a></li>
-						<li><a href="">2</a></li>
-						<li><a href="">3</a></li>
-						<li><a href="">&raquo;</a></li>-->
-					</ul>
+							?>
+							<!--<li class="active"><a href="">1</a></li>
+							<li><a href="">2</a></li>
+							<li><a href="">3</a></li>
+							<li><a href="">&raquo;</a></li>-->
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
