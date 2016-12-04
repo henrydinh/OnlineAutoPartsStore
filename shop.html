@@ -1,7 +1,7 @@
 <?php
 	// check if the user is logged in. If not, DON'T redirect to login page
 	session_start();
-	$rowsPerPage = 6; // this is actually items per page
+	$rowsPerPage = 1; // this is actually items per page
 	
 	if(isset($_SESSION['user_ID']) && isset($_SESSION['username'])){
 		$username = $_SESSION['username'];
@@ -302,10 +302,19 @@
 
 								if ($currentPage >1)
 								{
-									echo "<li><a href='{$_SERVER['PHP_SELF']}?keywords=$keywords&pageNumber=1'>&lt&lt</a></li>";
-									$prevPage = $currentPage - 1;
-									echo "<li><a href='{$_SERVER['PHP_SELF']}?keywords=$keywords&pageNumber=$prevPage'>&lt</a></li>";
+									if(!empty($keywords))
+									{
+										echo "<li><a href='{$_SERVER['PHP_SELF']}?keywords=$keywords&pageNumber=1'>&lt&lt</a></li>";
+										$prevPage = $currentPage - 1;
+										echo "<li><a href='{$_SERVER['PHP_SELF']}?keywords=$keywords&pageNumber=$prevPage'>&lt</a></li>";
+									}
 
+									if(!empty($category))
+									{
+										echo "<li><a href='{$_SERVER['PHP_SELF']}?category=$category&pageNumber=1'>&lt&lt</a></li>";
+										$prevPage = $currentPage - 1;
+										echo "<li><a href='{$_SERVER['PHP_SELF']}?category=$category&pageNumber=$prevPage'>&lt</a></li>";
+									}
 
 								}
 
@@ -316,11 +325,16 @@
 									// if it's a valid page number...
 									if (($x > 0) && ($x <= $totalPages)) {
 										// if we're on current page...
-
+										if(!empty($keywords))
+										{
 										// 'highlight' it but don't make a link
 										echo "<li><a href='{$_SERVER['PHP_SELF']}?keywords=$keywords&pageNumber=$x'>$x</a></li>";
+										}
 
-
+										if(!empty($category))
+										{
+											echo "<li><a href='{$_SERVER['PHP_SELF']}?category=$category&pageNumber=$x'>$x</a></li>";
+										}
 									}
 								}
 
@@ -329,10 +343,20 @@
 								if ($currentPage != $totalPages) {
 									// get next page
 									$nextPage = $currentPage + 1;
+									if(!empty($category))
+									{
 									// echo forward link for next page
 									echo "<li><a href='{$_SERVER['PHP_SELF']}?keywords=$keywords&pageNumber=$nextPage'>&gt</a></li>";
 									// echo forward link for lastpage
 									echo "<li><a href='{$_SERVER['PHP_SELF']}?keywords=$keywords&pageNumber=$totalPages'>&gt&gt</a></li>";
+									}
+
+									if(!empty($category))
+									{
+										echo "<li><a href='{$_SERVER['PHP_SELF']}?category=$category&pageNumber=$nextPage'>&gt</a></li>";
+										// echo forward link for lastpage
+										echo "<li><a href='{$_SERVER['PHP_SELF']}?category=$category&pageNumber=$totalPages'>&gt&gt</a></li>";
+									}
 								} // end if
 							}
 
