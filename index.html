@@ -92,7 +92,7 @@
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="index.html" class="active">Home</a></li>
-								<li><a href="shop.html?keywords=&pageNumber=1" class="">Shop</a></li>
+								<li><a href="shop.html?keywords=&category=&pageNumber=1" class="">Shop</a></li>
 								<li><a href="contact-us.html">Contact</a></li>
 							</ul>
 						</div>
@@ -127,7 +127,13 @@
 							// Get most recent 6 items from DB
 							$sql = "SELECT * FROM `item` ORDER BY `item`.`item_ID` DESC LIMIT 6";
 							$result = $con->query($sql);
+							$divRowCounter = 0;
+							$loopCounter = 0;
 							while($r = $result->fetch_object()){
+								if($loopCounter % 3 == 0){
+									echo '<div class="row">';
+									$divRowCounter = $loopCounter + 2;
+								}
 								echo '<div class="col-sm-4">';
 								echo '<div class="product-image-wrapper">';
 								echo '<div class="single-products">';
@@ -138,7 +144,7 @@
 								echo '</a>';
 												
 								echo '<a href="product-details.html?item_ID='.$r->item_ID.'">';
-								echo '<h2>'.$r->price.'</h2>';
+								echo '<h2>$'.$r->price.'</h2>';
 								echo '</a>';
 												
 								echo '<a href="product-details.html?item_ID='.$r->item_ID.'">';
@@ -149,6 +155,11 @@
 								echo '</div>';
 								echo '</div>';
 								echo '</div>';
+								if($loopCounter == $divRowCounter){
+									echo '</div>';
+								}
+							
+								$loopCounter = $loopCounter + 1;
 							}
 						?>
 						

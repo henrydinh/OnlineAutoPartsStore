@@ -30,14 +30,13 @@ $(document).ready(function() {
             data: data,
             success: function(result){
                 console.log(result);
-                $('#checkout_alert_box').text(result);
-                $('#checkout_alert_box').hide().fadeIn('fast').delay(5000).fadeOut('fast');
-                /*window.location = "http://localhost/onlineautopartsstore/index.html";*/
-/*                $("#do_action").hide();
-                $('#checkoutComplete').show().fadeIn('fast');*/
-
-
-
+				if(result != "Checkout Failed"){
+					var new_location = "order-summary.html?" + result;
+					window.location = new_location;
+				}else{
+					$('#checkout_alert_box').text(result);
+					$('#checkout_alert_box').hide().fadeIn('fast').delay(5000).fadeOut('fast');
+				}
             }
         });
         return false;
