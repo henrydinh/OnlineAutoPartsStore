@@ -125,8 +125,9 @@
 						<h2 class="title text-center">Featured Items</h2>
 						<?php
 							// Get most recent 6 items from DB
-							$sql = "SELECT * FROM `item` ORDER BY `item`.`item_ID` DESC LIMIT 6";
-							$result = $con->query($sql);
+							$sql = "SELECT * FROM `item` where num_available > 0 ORDER BY `item`.`item_ID` DESC LIMIT 6";
+
+						$result = $con->query($sql);
 							$divRowCounter = 0;
 							$loopCounter = 0;
 							while($r = $result->fetch_object()){
