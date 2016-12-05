@@ -157,7 +157,7 @@
 						<ul>
 							<br>
 							<li>Cart Sub Total <span><?php echo $totalPrice ?></span></li>
-							<li>Tax <span><?php $tax = $totalPrice * .0825; echo $tax ?></span></li>
+							<li>Tax <span><?php $tax = $totalPrice * .0825; $tax = round($tax,2); echo $tax ?></span></li>
 							<li>Shipping Cost <span>Free</span></li>
 							<li>Total <span><?php $total = $totalPrice + $tax; echo $total; ?></span></li>
 
