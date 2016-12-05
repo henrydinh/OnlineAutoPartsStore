@@ -59,7 +59,7 @@ $_SESSION["query_result"] = $link->query($getCart);
                 </td>
 
                 <td class="cart_delete">
-					<form id="delete_from_cart" name="delete_from_cart" method="POST">	
+					<form id="delete_from_cart" name="delete_from_cart" method="POST" action="deleteFromCart.php">
 						<button id="delete_from_cart_button" name="delete_from_cart_button" type="submit" class="cart_quantity_delete fa fa-times"></button>
 						<input type="hidden" id="cart_item_id" name="cart_item_id" value="<?php echo $_SESSION["rows"]->item_ID; ?>">
 						<input type="hidden" id="user_ID" name="user_ID" value="<?php echo $user_ID; ?>">

@@ -1,7 +1,7 @@
 <?php
 	// check if the user is logged in. If not, DON'T redirect to login page
 	session_start();
-	$rowsPerPage = 1; // this is actually items per page
+	$rowsPerPage = 6; // this is actually items per page
 	
 	if(isset($_SESSION['user_ID']) && isset($_SESSION['username'])){
 		$username = $_SESSION['username'];
@@ -190,7 +190,7 @@
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="index.html">Home</a></li>
-								<li><a href="shop.html?keywords=&category=&pageNumber=1" class="active">Shop</a></li>
+								<li><a href="shop.html?keywords=%&pageNumber=1" class="active">Shop</a></li>
 								<li><a href="contact-us.html">Contact</a></li>
 							</ul>
 						</div>
