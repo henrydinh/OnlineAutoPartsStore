@@ -10,7 +10,7 @@
 		// sql to delete the item
 		$sql = "DELETE FROM `cart` WHERE `item_ID`='$item_ID' AND `user_ID`='$user_ID'";
 		if($con->query($sql)){
-			echo "deleted";
+			header("Location: cart.html");
 		}
 	}
 	

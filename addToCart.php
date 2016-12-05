@@ -15,6 +15,7 @@ if(!empty($_POST['item_id'])){
 }
 
 
+
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
     $quantity = clean_input($_POST["quantity"]);
@@ -29,6 +30,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 
 }
+
+
+
+$checkQuantity = "SELECT num_available FROM item where item_ID  = $item_ID";
+
+$someItem = $link->query($checkQuantity);
+
+$quantityItem = $someItem->fetch_object();
+
+$thisIsItemQuantity = $quantityItem->num_available;
+
+
+if($thisIsItemQuantity < $quantity)
+{
+    echo "Quantity Not Available";
+    exit();
+}
+
+
 
 
 
