@@ -69,7 +69,13 @@ if ($stmt = mysqli_query($link, $insertItemQuery))
 
 else
 {
-    echo "You already have this item in your cart";
+    if(isset($_SESSION['user_ID'])) {
+        echo "You already have this item in your cart";
+    }
+
+    else{
+        echo "You must be logged in to add to cart";
+    }
 }
 
 
