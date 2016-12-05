@@ -18,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 }
 
 
-$deleteItemQuery = "DELETE FROM `item` WHERE `item`.`item_ID`='$itemID'";
+$deleteItemQuery = "UPDATE item SET num_available = 0 WHERE item_ID = $itemID";
 
 $idReset1 = "SELECT MAX( `item_ID` ) FROM `item` ;";
 

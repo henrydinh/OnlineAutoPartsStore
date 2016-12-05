@@ -30,6 +30,7 @@
 			$sql  .= "tags LIKE '%$values%' OR ";
 		}
 		$sql = substr($sql, 0, -3);
+		$sql = $sql."AND num_available > 0";
 		$_SESSION["sql"] = $sql;
 		
 
@@ -66,6 +67,8 @@
 		$sql = "SELECT *
 					FROM Item i
 					WHERE i.category = '$category'";
+		$sql = $sql."AND num_available > 0";
+
 		$_SESSION["sql"] = $sql; // <---Named like this temporarily for testing
 		
 		if(isset($_GET["pageNumber"])){
@@ -90,7 +93,9 @@
 
 		include 'database-connect.php';
 
-		$sql = "SELECT * from item";
+		$sql = "SELECT * from item ";
+		$sql = $sql."AND num_available > 0";
+
 		$_SESSION["sql"] = $sql;
 		$_SESSION["query_result"] = $con->query($sql);
 		while ($_SESSION["rows"] = ($_SESSION["query_result"]->fetch_object()))

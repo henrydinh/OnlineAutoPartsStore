@@ -15,8 +15,7 @@ echo $itemID;
 
 $itemID = $_POST["item_id"];
 
-$sql = "DELETE FROM item where item_ID = $itemID";
-echo "Test $itemID";
+$sql = "UPDATE item SET num_available = 0 WHERE item_ID = $itemID";
 
 if ($stmt = mysqli_query($link, $sql))
 {
