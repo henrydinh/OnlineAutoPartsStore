@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="491012ca-3539-4440-b63d-bf7a3fc3d385" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/product-details/4.jpg" afterPath="$PROJECT_DIR$/images/product-details/4.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addToCart.php" afterPath="$PROJECT_DIR$/addToCart.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cart.html" afterPath="$PROJECT_DIR$/cart.html" />
     </list>
     <ignored path="htdocs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,27 +35,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/register.php">
+      <file leaf-file-name="shop.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1215">
-              <caret line="69" column="32" selection-start-line="69" selection-start-column="26" selection-end-line="69" selection-end-column="32" />
-              <folding>
-                <marker date="1480877154787" expanded="true" signature="724:778" ph="SELECT * FRO... User" />
-                <marker date="1480877154787" expanded="true" signature="998:1146" ph="INSERT INTO user... " />
-                <marker date="1480877154787" expanded="true" signature="1421:1514" ph="SELECT * FRO... User" />
-              </folding>
+            <state relative-caret-position="75">
+              <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login.php">
+      <file leaf-file-name="cart.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cart.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+            <state relative-caret-position="240">
+              <caret line="159" column="97" selection-start-line="159" selection-start-column="97" selection-end-line="159" selection-end-column="97" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="populateCart.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/populateCart.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="51" column="28" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="28" />
               <folding>
-                <marker date="1480961971920" expanded="true" signature="611:661" ph="SELECT * FRO... User" />
+                <marker date="1480954792469" expanded="true" signature="165:228" ph="SELECT * FRO... item" />
               </folding>
             </state>
           </provider>
@@ -63,78 +70,8 @@
       <file leaf-file-name="product-details.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/product-details.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="173" column="55" selection-start-line="173" selection-start-column="44" selection-end-line="173" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addToCart.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/addToCart.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="76" column="52" selection-start-line="76" selection-start-column="52" selection-end-line="76" selection-end-column="52" />
-              <folding>
-                <marker date="1480962273351" expanded="true" signature="591:639" ph="SELECT num_a... item" />
-                <marker date="1480962273351" expanded="true" signature="905:959" ph="INSERT INTO cart... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="check-logged-in.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/check-logged-in.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="my-account.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-account.html">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="66" column="119" selection-start-line="66" selection-start-column="115" selection-end-line="66" selection-end-column="119" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shop.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shop.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="219" column="39" selection-start-line="219" selection-start-column="38" selection-end-line="219" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="checkout.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/checkout.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="70" column="41" selection-start-line="70" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-              <folding>
-                <marker date="1480877185152" expanded="true" signature="1241:1407" ph="INSERT INTO `onlineautopartsstore`.`transaction`... " />
-                <marker date="1480877185152" expanded="true" signature="1665:1712" ph="SELECT * FRO... cart" />
-                <marker date="1480877185152" expanded="true" signature="2155:2246" ph="INSERT INTO transaction_items... " />
-                <marker date="1480877185152" expanded="true" signature="2358:2468" ph="UPDATE `item... " />
-                <marker date="1480877185152" expanded="true" signature="2567:2630" ph="INSERT INTO user_transactions... " />
-                <marker date="1480877185152" expanded="true" signature="2698:2741" ph="DELETE FROM " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cart.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cart.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="104" column="52" selection-start-line="104" selection-start-column="46" selection-end-line="104" selection-end-column="52" />
+              <caret line="23" column="10" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -186,14 +123,14 @@
         <option value="$PROJECT_DIR$/adminOptions/listAll.php" />
         <option value="$PROJECT_DIR$/adminOptions/deleteFromList.php" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/cart.html" />
         <option value="$PROJECT_DIR$/product-details.html" />
-        <option value="$PROJECT_DIR$/shop.html" />
-        <option value="$PROJECT_DIR$/populateCart.php" />
         <option value="$PROJECT_DIR$/deleteFromCart.php" />
         <option value="$PROJECT_DIR$/login.html" />
         <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/addToCart.php" />
+        <option value="$PROJECT_DIR$/shop.html" />
+        <option value="$PROJECT_DIR$/populateCart.php" />
+        <option value="$PROJECT_DIR$/cart.html" />
       </list>
     </option>
   </component>
@@ -845,12 +782,12 @@
       <workItem from="1480558812579" duration="16406000" />
       <workItem from="1480698628709" duration="9000" />
       <workItem from="1480698662616" duration="45000" />
-      <workItem from="1480877864207" duration="9537000" />
+      <workItem from="1480877864207" duration="10842000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126427000" />
+    <option name="totallyTimeSpent" value="127732000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -862,7 +799,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1193,21 +1130,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/populateCart.php">
+    <entry file="file://$PROJECT_DIR$/my-account.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="61" column="112" selection-start-line="61" selection-start-column="112" selection-end-line="61" selection-end-column="112" />
+        <state relative-caret-position="240">
+          <caret line="66" column="119" selection-start-line="66" selection-start-column="115" selection-end-line="66" selection-end-column="119" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
           <folding>
-            <marker date="1480954792469" expanded="true" signature="165:228" ph="SELECT * FRO... item" />
+            <marker date="1480961971920" expanded="true" signature="611:661" ph="SELECT * FRO... User" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cart.html">
+    <entry file="file://$PROJECT_DIR$/check-logged-in.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="104" column="52" selection-start-line="104" selection-start-column="46" selection-end-line="104" selection-end-column="52" />
+        <state relative-caret-position="475">
+          <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addToCart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="76" column="52" selection-start-line="76" selection-start-column="52" selection-end-line="76" selection-end-column="52" />
+          <folding>
+            <marker date="1480962273351" expanded="true" signature="591:639" ph="SELECT num_a... item" />
+            <marker date="1480962273351" expanded="true" signature="905:959" ph="INSERT INTO cart... " />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1231,56 +1187,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="219" column="39" selection-start-line="219" selection-start-column="38" selection-end-line="219" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-account.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="66" column="119" selection-start-line="66" selection-start-column="115" selection-end-line="66" selection-end-column="119" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-          <folding>
-            <marker date="1480961971920" expanded="true" signature="611:661" ph="SELECT * FRO... User" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/product-details.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="173" column="55" selection-start-line="173" selection-start-column="44" selection-end-line="173" selection-end-column="55" />
+        <state relative-caret-position="240">
+          <caret line="23" column="10" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/check-logged-in.php">
+    <entry file="file://$PROJECT_DIR$/shop.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+        <state relative-caret-position="75">
+          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addToCart.php">
+    <entry file="file://$PROJECT_DIR$/populateCart.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="76" column="52" selection-start-line="76" selection-start-column="52" selection-end-line="76" selection-end-column="52" />
+        <state relative-caret-position="240">
+          <caret line="51" column="28" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="28" />
           <folding>
-            <marker date="1480962273351" expanded="true" signature="591:639" ph="SELECT num_a... item" />
-            <marker date="1480962273351" expanded="true" signature="905:959" ph="INSERT INTO cart... " />
+            <marker date="1480954792469" expanded="true" signature="165:228" ph="SELECT * FRO... item" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="159" column="97" selection-start-line="159" selection-start-column="97" selection-end-line="159" selection-end-column="97" />
+          <folding />
         </state>
       </provider>
     </entry>
