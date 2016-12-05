@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="491012ca-3539-4440-b63d-bf7a3fc3d385" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adminOptions/delete.php" afterPath="$PROJECT_DIR$/adminOptions/delete.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adminOptions/deleteFromList.php" afterPath="$PROJECT_DIR$/adminOptions/deleteFromList.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shop.html" afterPath="$PROJECT_DIR$/shop.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addToCart.php" afterPath="$PROJECT_DIR$/addToCart.php" />
     </list>
     <ignored path="htdocs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,16 +23,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="112" column="38" selection-start-line="112" selection-start-column="32" selection-end-line="112" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="shop.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shop.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -57,15 +43,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="delete.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="delete.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/adminOptions/delete.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
+            <state relative-caret-position="-333">
               <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding>
                 <marker date="1480966109343" expanded="true" signature="281:331" ph="UPDATE item " />
                 <marker date="1480966109343" expanded="true" signature="355:390" ph="SELECT MAX( item" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addToCart.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/addToCart.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+              <folding>
+                <marker date="1480966392592" expanded="true" signature="623:671" ph="SELECT num_a... item" />
+                <marker date="1480966392592" expanded="true" signature="937:991" ph="INSERT INTO cart... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="check-logged-in.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/check-logged-in.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="475">
+              <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -173,7 +182,6 @@
         <option value="$PROJECT_DIR$/deleteFromCart.php" />
         <option value="$PROJECT_DIR$/login.html" />
         <option value="$PROJECT_DIR$/login.php" />
-        <option value="$PROJECT_DIR$/addToCart.php" />
         <option value="$PROJECT_DIR$/populateCart.php" />
         <option value="$PROJECT_DIR$/cart.html" />
         <option value="$PROJECT_DIR$/adminOptions/listAll.php" />
@@ -181,6 +189,7 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/adminOptions/deleteFromList.php" />
         <option value="$PROJECT_DIR$/adminOptions/delete.php" />
+        <option value="$PROJECT_DIR$/addToCart.php" />
       </list>
     </option>
   </component>
@@ -832,12 +841,12 @@
       <workItem from="1480558812579" duration="16406000" />
       <workItem from="1480698628709" duration="9000" />
       <workItem from="1480698662616" duration="45000" />
-      <workItem from="1480877864207" duration="12040000" />
+      <workItem from="1480877864207" duration="12278000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128930000" />
+    <option name="totallyTimeSpent" value="129168000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1162,25 +1171,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/check-logged-in.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addToCart.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="76" column="52" selection-start-line="76" selection-start-column="52" selection-end-line="76" selection-end-column="52" />
-          <folding>
-            <marker date="1480964020279" expanded="true" signature="591:639" ph="SELECT num_a... item" />
-            <marker date="1480964020279" expanded="true" signature="905:959" ph="INSERT INTO cart... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/register.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1215">
@@ -1266,11 +1256,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/adminOptions/delete.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
+        <state relative-caret-position="-333">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
             <marker date="1480966109343" expanded="true" signature="281:331" ph="UPDATE item " />
             <marker date="1480966109343" expanded="true" signature="355:390" ph="SELECT MAX( item" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/check-logged-in.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addToCart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+          <folding>
+            <marker date="1480966392592" expanded="true" signature="623:671" ph="SELECT num_a... item" />
+            <marker date="1480966392592" expanded="true" signature="937:991" ph="INSERT INTO cart... " />
           </folding>
         </state>
       </provider>

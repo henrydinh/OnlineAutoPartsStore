@@ -1,6 +1,8 @@
 <?php
 $link = mysqli_connect('localhost', 'root', 'root', 'onlineautopartsstore');
 
+include 'check-logged-in.php';
+
 if (!$link)
 {
     die("Not Connecting to Database");
