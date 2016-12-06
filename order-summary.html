@@ -6,7 +6,7 @@
 	$transaction_ID = "";
 	$date = "";
 	$total_price = "";
-	
+
 	// get the transaction_ID from the url if any, else go back to my-account page
 	if(!empty($_GET['transaction_ID']) && $user_ID == $_GET['user_ID']){
 		$transaction_ID = $_GET['transaction_ID'];
@@ -16,13 +16,13 @@
 
 	// connect to database
 	include 'database-connect.php';
-	
+
 	// Query to get transaction info
 	$t_sql = "SELECT *
 			FROM Transaction t
 			WHERE t.transaction_ID = $transaction_ID";
 	$result = $con->query($t_sql);
-	
+
 	while($r = $result->fetch_object()){
 		$date = $r->date;
 		$total_price = $r->total_price;
@@ -47,7 +47,7 @@
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
-    <![endif]-->       
+    <![endif]-->
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
@@ -85,7 +85,7 @@
 				</div>
 			</div>
 		</div><!--/header-middle-->
-	
+
 		<div class="header-bottom"><!--header-bottom-->
 			<div class="container">
 				<div class="row">
@@ -117,7 +117,7 @@
 				<h2>Order Details</h2>
 				<p>Ordered on <?php echo $date; ?> | Order ID# <?php echo $transaction_ID; ?></p>
 			</div>
-			
+
 			<div class="shopper-informations">
 				<div class="row">
 					<div class="col-md-4">
